@@ -85,7 +85,9 @@ icons <- awesomeIcons(
   markerColor = getcolor(xl_file)
 )
 
+
 #leaflet(xl_file) |>
 #  addTiles() |>
 #  addAwesomeMarkers(~lng, ~lat, icon=icons, label=~as.character(Type))
+
 ```
