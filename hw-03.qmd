@@ -38,8 +38,25 @@ invisible(lapply(packages, library, character.only = TRUE))
 
 library(leaflet)
 
-m <- leaflet() |>
-  addTiles() |>
+xl_file <- readxl::read_excel("./data/file_show.xlsx")
+xl_file
+
+m <- leaflet(data = xl_file) %>%
+  addTiles() %>%
+  addMarkers(lat = ~Latitude , lng = ~Longitude , popup = ~Location)
+
 m
+
+getcolor <- function(m) {
+  sapply(xl_file$Type, function(Type){
+    if(Type == "Residence Hall") {
+      "purple"
+    } else if (type == "University Apartment"){
+      "orange"
+    } else {
+      "red"}
+    }
+  )
+}
 
 ```
