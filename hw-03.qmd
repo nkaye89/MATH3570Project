@@ -41,7 +41,7 @@ invisible(lapply(packages, library, character.only = TRUE))
 
 library(leaflet)
 
-xl_file <- readxl::read_excel("./data/file_show.xlsx")
+xl_file <- readxl::read_excel("./data/MU Location Coordinates.xlsx")
 xl_file
 
 
@@ -52,21 +52,40 @@ xl_file
 
 m <- leaflet(data = xl_file) %>%
   addTiles() %>%
-  addMarkers(lat = ~Latitude , lng = ~Longitude , popup = ~Location)
+  addMarkers(lat = ~Latitude , lng = ~Longitude , popup = ~Location, label = ~as.character(Type))
 
 m
 
-getcolor <- function(m) {
-  sapply(xl_file$Type, function(Type){
+getcolor <- function(xl_file){
+  sapply(xl_file$Type, function(Type) {
     if(Type == "Residence Hall") {
       "purple"
-    } else if (type == "University Apartment"){
+    }else if(Type == "University Apartment"){
       "orange"
-    } else {
-      "red"}
+    }else if(Type == "Administrative") {
+      "green"
+    }else if(Type == "Academic") {
+      "blue"
+    }else if(Type == "Recreation") {
+      "red"
+    }else if(Type == "Religious Institution"){
+      "yellow"
+    }else if(Type == "Parking") {
+      "black"
+    }else{
+      "white"
     }
-  )
+  })
 }
 
+icons <- awesomeIcons(
+  icon = 'ios-close',
+  iconColor = 'black',
+  library = 'ion',
+  markerColor = getcolor(xl_file)
+)
 
+leaflet(xl_file) |>
+  addTiles() |>
+  addAwesomeMarkers(~lng, ~lat, icon=icons, label=~as.character(Type))
 ```
