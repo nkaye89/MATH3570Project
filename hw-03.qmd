@@ -38,10 +38,13 @@ invisible(lapply(packages, library, character.only = TRUE))
 
 library(leaflet)
 
-m <- leaflet() %>%
+xl_file <- readxl::read_excel("./data/file_show.xlsx")
+xl_file
+
+m <- leaflet(data = xl_file) %>%
   addTiles() %>%
-  addMarkers(lng = 43.03934, lat = 87.92832, popup = "Abbottsford Hall") %>%
-  addMarkers(lng = 43.04041, lat = 87.93195, popup = "Campus Town East")
+  addMarkers(lat = ~Latitude , lng = ~Longitude , popup = ~Location)
+
 m
 
 ```
