@@ -38,10 +38,8 @@ invisible(lapply(packages, library, character.only = TRUE))
 
 library(leaflet)
 
-m <- leaflet() %>%
-  addTiles() %>%
-  addMarkers(lng = 43.03934, lat = 87.92832, popup = "Abbottsford Hall") %>%
-  addMarkers(lng = 43.04041, lat = 87.93195, popup = "Campus Town East")
+m <- leaflet() |>
+  addTiles() |>
 m
 
 ```
