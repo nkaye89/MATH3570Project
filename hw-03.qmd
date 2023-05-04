@@ -1,7 +1,10 @@
 ---
 title: "Introducing Leaflet"
 subtitle: "Team Analytics and Beyond"
-format: revealjs
+format: 
+  revealjs:
+    slide-number: c/t   
+    logo: "https://upload.wikimedia.org/wikipedia/commons/e/e8/Marquette_Golden_Eagles_logo.svg"
 date: "`r Sys.Date()`"
 author: "**Andrew Hiller, Annie Gibbons, Caroline Kwak, Noah Kaye**"
 number-sections: true
@@ -33,13 +36,19 @@ if (any(installed_packages == FALSE)) {
 invisible(lapply(packages, library, character.only = TRUE))
 ```
 
-
+## First Slide
 ```{r}
 
 library(leaflet)
 
 xl_file <- readxl::read_excel("./data/file_show.xlsx")
 xl_file
+
+
+```
+
+## Second Slide
+```{r}
 
 m <- leaflet(data = xl_file) %>%
   addTiles() %>%
@@ -58,5 +67,6 @@ getcolor <- function(m) {
     }
   )
 }
+
 
 ```
