@@ -53,10 +53,13 @@ invisible(lapply(packages, library, character.only = TRUE))
 - This package helps us do data science because it can be easily used to visualize spatial data with a wide range of features such as searching, zooming and switching between layers.
 
 ## Usage: Initializing the Window
+Initializing creates the window for other functions to add to  
 
-initializing creates the window for other functions to add to  
+. . .
 
 functions:  
+
+. . .
 
 - leaflet() 
 
@@ -77,7 +80,9 @@ functions:
 - clearBounds(): clears the bound, so that the view will be automatically determined by the range of latitude/longitude data in the map layers if provided 
 
 ## Creating Maps
-creating the map requires “tiles” that tell Leaflet what type of map to output 
+Creating the map requires “tiles” that tell Leaflet what type of map to output 
+
+. . .
 
 functions: 
 
@@ -92,7 +97,9 @@ functions:
 - addWMSTiles(): Web Map Services tiles (via the internet)
 
 ## Adding Shapes 
-allows user to put in country, state, counties, etc. shapes in the map to connect to data  
+Allows user to put in country, state, counties, etc. shapes in the map to connect to data  
+
+. . .
 
 functions: 
 
@@ -106,8 +113,98 @@ functions:
 
 - addRectangles(): 4 given points  
 
+## Adding Colors 
+Can help convey more information within the visual 
+
+. . .
+
+
+functions:  
+
+- colorNumeric(): continuous input, continuous colors 
+
+. . .
+
+- colorBin(), colorQuanitile(): continuous input, discrete colors 
+
+. . .
+
+- colorFactor(): categorical input  
+
+## Adding Markers 
+Markers are used to highlight points on the map to add more information to the display 
+
+. . .
+
+functions:  
+
+- addMarker(), addAwesomeMarker(): adding icon marker (default is dropped pin)  
+
+. . .
+
+- makeIcon(), makeAwesomeIcon(): customizing icon markers 
+
+. . .
+
+- iconList(), awesomeIconList(): set of icons with varying parameters 
+
+. . .
+
+- clusterMarkers(), clusterMarkerOptions(): clustering large quantities of markers (when you zoom out they combine into one icon)  
+
+. . .
+
+- addCircleMarkers(): adds circle markers with constant radius 
+
+## Popups and Labels 
+Good ways to explain what a marker is or represents, without overcrowding the visual 
+
+. . .
+
+Labels appear when a marker is moused over
+
+. . .
+
+Popups appear when a marker is clicked on  
+
+. . .
+
+functions 
+
+- addPopups(): add popups to map  
+
+. . .
+
+- labelOptions() 
+
+. . .
+
+- addLabelOnlyMarkers(): labels without markers 
+
+## Legend 
+
+Legends explain what some of the markers or colors represent on the map enabling more information to be on visual without overcrowding the page  
+
+. . .
+
+functions 
+
+- addLegend() 
+
+## Layers 
+A way to fit more information onto the map without overcrowding 
+
+. . .
+
+functions 
+
+- addLayersControl(): adds box that allows you to control which layers you see 
+
 ## Reading Data form Excel
-- Once we create our data based on the longitude and latitude we can let R read the data. 
+Once we create our data based on the longitude and latitude we can let R read the data. 
+
+. . .
+
 ```{r}
 #| echo: fenced
 
@@ -119,34 +216,34 @@ xl_file
 ```
 
 ## Turning Data into Map
+With the data from excel we use leaflet(), addTiles(), and addMarkers() to make the inital map.
 ```{r}
 #| echo: fenced 
 
 m <- leaflet(data = xl_file) %>%
   addTiles() %>%
-  addMarkers(lat = ~Latitude , lng = ~Longitude , popup = ~as.character(Type), label = ~as.character(Type))
+  addMarkers(lat = ~Latitude , lng = ~Longitude , popup = ~as.character(Type), label = ~as.character(Location))
 
 m
 ```
 
 ## Changing Color Based on Type 
+
 ```{r}
 #| echo: fenced 
-df <- xl_file[1:64,]
 
-getColor <- function(xl_file){
-  sapply(xl_file$Type, function(Type) {
+getColor <- function(xl_file){sapply(xl_file$Type, function(Type) {
     if(Type == "Residence Hall") {
       "red"
-    }else if(Type == "University Apartment"){
-      "darkred"
+    }else if(Type == "University Apartment") {
+      "gray"
     }else if(Type == "Administrative") {
       "green"
     }else if(Type == "Academic") {
       "orange"
     }else if(Type == "Recreation") {
-      "darkgreen"
-    }else if(Type == "Religious Institution"){
+      "white"
+    }else if(Type == "Religious Institution") {
       "blue"
     }else if(Type == "Parking") {
       "purple"
@@ -158,20 +255,16 @@ getColor <- function(xl_file){
 icons <- awesomeIcons(
   icon = 'ios-close',
   iconColor = 'black',
-  library = 'ion',
-  markerColor = getColor(df)
+  library = "ion",
+  markerColor = getColor(xl_file)
 )
 
-
-#leaflet(df) %>% addTiles() %>%
-#  addAwesomeMarkers(~lat, ~lng, icon=icons, label=~as.character(Type))
 ```
 
 ## slide with new icons
 ```{r}
-leaflet(xl_file) |>
+leaflet(df.all) |>
   addTiles() |>
-  addAwesomeMarkers(lng = ~Longitude, lat = ~Latitude, popup = ~Location, icon=icons,
-                    label=~as.character(Type))
+  addAwesomeMarkers(lng = ~Longitude, lat = ~Latitude, popup = ~Location, icon=icons, label= ~as.character(xl_file$Type))
 ```
 

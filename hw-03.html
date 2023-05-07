@@ -437,11 +437,15 @@
 </section>
 <section id="usage-initializing-the-window" class="slide level2">
 <h2>Usage: Initializing the Window</h2>
-<p>initializing creates the window for other functions to add to</p>
+<p>Initializing creates the window for other functions to add to</p>
+<div class="fragment">
 <p>functions:</p>
+</div>
+<div class="fragment">
 <ul>
 <li>leaflet()</li>
 </ul>
+</div>
 <div class="fragment">
 <ul>
 <li>leafletOptions(): sets minZoom and maxZoom</li>
@@ -465,11 +469,13 @@
 </section>
 <section id="creating-maps" class="slide level2">
 <h2>Creating Maps</h2>
-<p>creating the map requires “tiles” that tell Leaflet what type of map to output</p>
+<p>Creating the map requires “tiles” that tell Leaflet what type of map to output</p>
+<div class="fragment">
 <p>functions:</p>
 <ul>
 <li>addTiles(): adding OpenStreetMap base map</li>
 </ul>
+</div>
 <div class="fragment">
 <ul>
 <li>addProviderTiles(): adding third-party provided base maps (via plugin)</li>
@@ -483,11 +489,13 @@
 </section>
 <section id="adding-shapes" class="slide level2">
 <h2>Adding Shapes</h2>
-<p>allows user to put in country, state, counties, etc. shapes in the map to connect to data</p>
+<p>Allows user to put in country, state, counties, etc. shapes in the map to connect to data</p>
+<div class="fragment">
 <p>functions:</p>
 <ul>
 <li>addPolygons(): add map shapes (countries, states, counties, etc.)</li>
 </ul>
+</div>
 <div class="fragment">
 <ul>
 <li>addCircles(): given radius around a point</li>
@@ -499,11 +507,106 @@
 </ul>
 </div>
 </section>
+<section id="adding-colors" class="slide level2">
+<h2>Adding Colors</h2>
+<p>Can help convey more information within the visual</p>
+<div class="fragment">
+<p>functions:</p>
+<ul>
+<li>colorNumeric(): continuous input, continuous colors</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>colorBin(), colorQuanitile(): continuous input, discrete colors</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>colorFactor(): categorical input</li>
+</ul>
+</div>
+</section>
+<section id="adding-markers" class="slide level2">
+<h2>Adding Markers</h2>
+<p>Markers are used to highlight points on the map to add more information to the display</p>
+<div class="fragment">
+<p>functions:</p>
+<ul>
+<li>addMarker(), addAwesomeMarker(): adding icon marker (default is dropped pin)</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>makeIcon(), makeAwesomeIcon(): customizing icon markers</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>iconList(), awesomeIconList(): set of icons with varying parameters</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>clusterMarkers(), clusterMarkerOptions(): clustering large quantities of markers (when you zoom out they combine into one icon)</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>addCircleMarkers(): adds circle markers with constant radius</li>
+</ul>
+</div>
+</section>
+<section id="popups-and-labels" class="slide level2">
+<h2>Popups and Labels</h2>
+<p>Good ways to explain what a marker is or represents, without overcrowding the visual</p>
+<div class="fragment">
+<p>Labels appear when a marker is moused over</p>
+</div>
+<div class="fragment">
+<p>Popups appear when a marker is clicked on</p>
+</div>
+<div class="fragment">
+<p>functions</p>
+<ul>
+<li>addPopups(): add popups to map</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>labelOptions()</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>addLabelOnlyMarkers(): labels without markers</li>
+</ul>
+</div>
+</section>
+<section id="legend" class="slide level2">
+<h2>Legend</h2>
+<p>Legends explain what some of the markers or colors represent on the map enabling more information to be on visual without overcrowding the page</p>
+<div class="fragment">
+<p>functions</p>
+<ul>
+<li>addLegend()</li>
+</ul>
+</div>
+</section>
+<section id="layers" class="slide level2">
+<h2>Layers</h2>
+<p>A way to fit more information onto the map without overcrowding</p>
+<div class="fragment">
+<p>functions</p>
+<ul>
+<li>addLayersControl(): adds box that allows you to control which layers you see</li>
+</ul>
+</div>
+</section>
 <section id="reading-data-form-excel" class="slide level2">
 <h2>Reading Data form Excel</h2>
-<ul>
-<li>Once we create our data based on the longitude and latitude we can let R read the data.</li>
-</ul>
+<p>Once we create our data based on the longitude and latitude we can let R read the data.</p>
+<div class="fragment">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="in">```{r}</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(leaflet)</span>
@@ -528,18 +631,22 @@
 # ℹ 54 more rows</code></pre>
 </div>
 </div>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD ## Turning Data into Map</p>
+</div>
+</section>
+<section id="turning-data-into-map" class="slide level2">
+<h2>Turning Data into Map</h2>
+<p>With the data from excel we use leaflet(), addTiles(), and addMarkers() to make the inital map.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a><span class="in">```{r}</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a>m <span class="ot">&lt;-</span> <span class="fu">leaflet</span>(<span class="at">data =</span> xl_file) <span class="sc">%&gt;%</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a>  <span class="fu">addMarkers</span>(<span class="at">lat =</span> <span class="sc">~</span>Latitude , <span class="at">lng =</span> <span class="sc">~</span>Longitude , <span class="at">popup =</span> <span class="sc">~</span><span class="fu">as.character</span>(Type), <span class="at">label =</span> <span class="sc">~</span><span class="fu">as.character</span>(Type))</span>
+<span id="cb3-4"><a href="#cb3-4"></a>  <span class="fu">addMarkers</span>(<span class="at">lat =</span> <span class="sc">~</span>Latitude , <span class="at">lng =</span> <span class="sc">~</span>Longitude , <span class="at">popup =</span> <span class="sc">~</span><span class="fu">as.character</span>(Type), <span class="at">label =</span> <span class="sc">~</span><span class="fu">as.character</span>(Location))</span>
 <span id="cb3-5"><a href="#cb3-5"></a></span>
 <span id="cb3-6"><a href="#cb3-6"></a>m</span>
 <span id="cb3-7"><a href="#cb3-7"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-59a9535e666c5854498f" style="width:960px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-59a9535e666c5854498f">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[[43.03934,43.040426,43.04097,43.03905,43.039442,43.040132,43.039054,43.039023,43.038877,43.039673,43.038383,43.040018,43.039015,43.040407,43.03963,43.036768,43.037368,43.037446,43.038254,43.038289,43.037046,43.03834,43.036968,43.038325,43.038278,43.036427,43.037148,43.036505,43.036764,43.038979,43.040022,43.037611,43.038383,43.036752,43.037521,43.038338,43.036494,43.032091,43.037707,43.040452,43.039902,43.036642,43.037057,43.03709,43.03903,43.037958,43.039826,43.039587,43.040913,43.039532,43.039525,43.038125,43.038129,43.037358,43.040679,43.040797,43.040104,43.039193,43.040124,43.040396,43.040141,43.040378,43.040094,43.040404],[-87.92837,-87.931875,-87.933926,-87.925566,-87.926166,-87.93346,-87.933125,-87.934586,-87.937448,-87.928968,-87.923646,-87.934769,-87.926058,-87.934501,-87.930935,-87.932056,-87.928442,-87.932524,-87.928759,-87.93616,-87.926987,-87.933582,-87.927793,-87.93218,-87.93157,-87.932359,-87.933428,-87.933562,-87.928756,-87.929409,-87.929748,-87.931058,-87.926718,-87.929565,-87.931892,-87.926146,-87.930574,-87.936116,-87.927777,-87.932696,-87.931935,-87.931159,-87.930585,-87.931151,-87.92796,-87.927256,-87.927583,-87.926773,-87.928332,-87.933556,-87.930004,-87.930875,-87.929684,-87.929519,-87.932698,-87.932538,-87.933455,-87.933109,-87.933122,-87.934006,-87.933743,-87.932624,-87.93362,-87.933148],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Residence Hall","University Apartment","University Apartment","Residence Hall","Residence Hall","University Apartment","University Apartment","Residence Hall","Residence Hall","Residence Hall","Residence Hall","Residence Hall","Administrative","Academic","Administrative","Academic","Academic","Academic","Academic","Academic","Academic","Academic","Recreation","Academic","Academic","Recreation","Recreation","Recreation","Recreation","Recreation","Residence Hall","Religious Institution","Academic","Academic","Academic","Administrative","Administrative","Recreation","Academic","Recreation","Recreation","Academic","Academic","Academic","Administrative","Religious Institution","Academic","Recreation","Parking","Parking","Recreation","Academic","Academic","Recreation","Academic","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment"],null,null,null,["Residence Hall","University Apartment","University Apartment","Residence Hall","Residence Hall","University Apartment","University Apartment","Residence Hall","Residence Hall","Residence Hall","Residence Hall","Residence Hall","Administrative","Academic","Administrative","Academic","Academic","Academic","Academic","Academic","Academic","Academic","Recreation","Academic","Academic","Recreation","Recreation","Recreation","Recreation","Recreation","Residence Hall","Religious Institution","Academic","Academic","Academic","Administrative","Administrative","Recreation","Academic","Recreation","Recreation","Academic","Academic","Academic","Administrative","Religious Institution","Academic","Recreation","Parking","Parking","Recreation","Academic","Academic","Recreation","Academic","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[43.032091,43.04097],"lng":[-87.937448,-87.923646]}},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-1274641a6b974fe24e60" style="width:960px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-1274641a6b974fe24e60">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[[43.03934,43.040426,43.04097,43.03905,43.039442,43.040132,43.039054,43.039023,43.038877,43.039673,43.038383,43.040018,43.039015,43.040407,43.03963,43.036768,43.037368,43.037446,43.038254,43.038289,43.037046,43.03834,43.036968,43.038325,43.038278,43.036427,43.037148,43.036505,43.036764,43.038979,43.040022,43.037611,43.038383,43.036752,43.037521,43.038338,43.036494,43.032091,43.037707,43.040452,43.039902,43.036642,43.037057,43.03709,43.03903,43.037958,43.039826,43.039587,43.040913,43.039532,43.039525,43.038125,43.038129,43.037358,43.040679,43.040797,43.040104,43.039193,43.040124,43.040396,43.040141,43.040378,43.040094,43.040404],[-87.92837,-87.931875,-87.933926,-87.925566,-87.926166,-87.93346,-87.933125,-87.934586,-87.937448,-87.928968,-87.923646,-87.934769,-87.926058,-87.934501,-87.930935,-87.932056,-87.928442,-87.932524,-87.928759,-87.93616,-87.926987,-87.933582,-87.927793,-87.93218,-87.93157,-87.932359,-87.933428,-87.933562,-87.928756,-87.929409,-87.929748,-87.931058,-87.926718,-87.929565,-87.931892,-87.926146,-87.930574,-87.936116,-87.927777,-87.932696,-87.931935,-87.931159,-87.930585,-87.931151,-87.92796,-87.927256,-87.927583,-87.926773,-87.928332,-87.933556,-87.930004,-87.930875,-87.929684,-87.929519,-87.932698,-87.932538,-87.933455,-87.933109,-87.933122,-87.934006,-87.933743,-87.932624,-87.93362,-87.933148],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Residence Hall","University Apartment","University Apartment","Residence Hall","Residence Hall","University Apartment","University Apartment","Residence Hall","Residence Hall","Residence Hall","Residence Hall","Residence Hall","Administrative","Academic","Administrative","Academic","Academic","Academic","Academic","Academic","Academic","Academic","Recreation","Academic","Academic","Recreation","Recreation","Recreation","Recreation","Recreation","Residence Hall","Religious Institution","Academic","Academic","Academic","Administrative","Administrative","Recreation","Academic","Recreation","Recreation","Academic","Academic","Academic","Administrative","Religious Institution","Academic","Recreation","Parking","Parking","Recreation","Academic","Academic","Recreation","Academic","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment"],null,null,null,["Abbottsford Hall","Campus Town East","Campus Town West","M. Carpenter Tower Hall","Charles Cobeen Hall","Frenn Building","Gilman Building","Glenn Humphrey Hall","Mashuda Hall","Schroeder Hall","David A. Straz, Jr., Tower Hall","The Commons","707 Building","1700 Building","Alumni Memorial Union","Emory T. Clark Hall","Coughlin Hall","Cramer Hall","Cudahy Hall","School of Dentistry","Ray and Kay Eckstein Hall","Engineering Hall","Haggerty Museum of Art","Haggerty Hall","Olin Engineering Center","ROTC Gymnasium","Halfaer Building","Halfaer Tennis Stadium","Halfaer Theatre","Holthusen Hall (Varsity Theater)","Dr. E.J. O'Brien Jesuit Residence","St. Joan of Arc Chapel","Johnston Hall","Lalumiere Language Hall","Schroeder Complex","Sensenbrenner Hall","Facilities Service Building","Valley Fields","David A. Straz, Jr., Hall","Union Sports Annex","Weasler Auditorium","Wehr Life Sciences","Wehr Chemistry","Wehr Physics","Zilber Hall","Church of the Gesu","Athletic &amp; Human \r\nPerformance Research Center","Al McGuire Center","Wells Street Structure","16th Street Structure","Eckstein Common","Memorial Library","Raynor Library","Academic Quad","Book Marq","Sendik's","Murphy's Pub","Caffrey's","Sobelman's (RIP)","7-ELEVEN","Broken Yolk","Jimmy John's","Real Chili","Qdoba"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[43.032091,43.04097],"lng":[-87.937448,-87.923646]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -547,48 +654,49 @@
 <h2>Changing Color Based on Type</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a><span class="in">```{r}</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a>df <span class="ot">&lt;-</span> xl_file[<span class="dv">1</span><span class="sc">:</span><span class="dv">64</span>,]</span>
-<span id="cb4-3"><a href="#cb4-3"></a></span>
-<span id="cb4-4"><a href="#cb4-4"></a>getColor <span class="ot">&lt;-</span> <span class="cf">function</span>(xl_file){</span>
-<span id="cb4-5"><a href="#cb4-5"></a>  <span class="fu">sapply</span>(xl_file<span class="sc">$</span>Type, <span class="cf">function</span>(Type) {</span>
-<span id="cb4-6"><a href="#cb4-6"></a>    <span class="cf">if</span>(Type <span class="sc">==</span> <span class="st">"Residence Hall"</span>) {</span>
-<span id="cb4-7"><a href="#cb4-7"></a>      <span class="st">"red"</span></span>
-<span id="cb4-8"><a href="#cb4-8"></a>    }<span class="cf">else</span> <span class="cf">if</span>(Type <span class="sc">==</span> <span class="st">"University Apartment"</span>){</span>
-<span id="cb4-9"><a href="#cb4-9"></a>      <span class="st">"darkred"</span></span>
-<span id="cb4-10"><a href="#cb4-10"></a>    }<span class="cf">else</span> <span class="cf">if</span>(Type <span class="sc">==</span> <span class="st">"Administrative"</span>) {</span>
-<span id="cb4-11"><a href="#cb4-11"></a>      <span class="st">"green"</span></span>
-<span id="cb4-12"><a href="#cb4-12"></a>    }<span class="cf">else</span> <span class="cf">if</span>(Type <span class="sc">==</span> <span class="st">"Academic"</span>) {</span>
-<span id="cb4-13"><a href="#cb4-13"></a>      <span class="st">"orange"</span></span>
-<span id="cb4-14"><a href="#cb4-14"></a>    }<span class="cf">else</span> <span class="cf">if</span>(Type <span class="sc">==</span> <span class="st">"Recreation"</span>) {</span>
-<span id="cb4-15"><a href="#cb4-15"></a>      <span class="st">"darkgreen"</span></span>
-<span id="cb4-16"><a href="#cb4-16"></a>    }<span class="cf">else</span> <span class="cf">if</span>(Type <span class="sc">==</span> <span class="st">"Religious Institution"</span>){</span>
-<span id="cb4-17"><a href="#cb4-17"></a>      <span class="st">"blue"</span></span>
-<span id="cb4-18"><a href="#cb4-18"></a>    }<span class="cf">else</span> <span class="cf">if</span>(Type <span class="sc">==</span> <span class="st">"Parking"</span>) {</span>
-<span id="cb4-19"><a href="#cb4-19"></a>      <span class="st">"purple"</span></span>
-<span id="cb4-20"><a href="#cb4-20"></a>    }<span class="cf">else</span>{</span>
-<span id="cb4-21"><a href="#cb4-21"></a>      <span class="st">"cadetblue"</span></span>
-<span id="cb4-22"><a href="#cb4-22"></a>    } })</span>
-<span id="cb4-23"><a href="#cb4-23"></a>}</span>
-<span id="cb4-24"><a href="#cb4-24"></a></span>
-<span id="cb4-25"><a href="#cb4-25"></a>icons <span class="ot">&lt;-</span> <span class="fu">awesomeIcons</span>(</span>
-<span id="cb4-26"><a href="#cb4-26"></a>  <span class="at">icon =</span> <span class="st">'ios-close'</span>,</span>
-<span id="cb4-27"><a href="#cb4-27"></a>  <span class="at">iconColor =</span> <span class="st">'black'</span>,</span>
-<span id="cb4-28"><a href="#cb4-28"></a>  <span class="at">library =</span> <span class="st">'ion'</span>,</span>
-<span id="cb4-29"><a href="#cb4-29"></a>  <span class="at">markerColor =</span> <span class="fu">getColor</span>(df)</span>
-<span id="cb4-30"><a href="#cb4-30"></a>)</span>
-<span id="cb4-31"><a href="#cb4-31"></a></span>
-<span id="cb4-32"><a href="#cb4-32"></a></span>
-<span id="cb4-33"><a href="#cb4-33"></a><span class="co">#leaflet(df) %&gt;% addTiles() %&gt;%</span></span>
-<span id="cb4-34"><a href="#cb4-34"></a><span class="co">#  addAwesomeMarkers(~lat, ~lng, icon=icons, label=~as.character(Type))</span></span>
-<span id="cb4-35"><a href="#cb4-35"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-2"><a href="#cb4-2"></a>getColor <span class="ot">&lt;-</span> <span class="cf">function</span>(xl_file){<span class="fu">sapply</span>(xl_file<span class="sc">$</span>Type, <span class="cf">function</span>(Type) {</span>
+<span id="cb4-3"><a href="#cb4-3"></a>    <span class="cf">if</span>(Type <span class="sc">==</span> <span class="st">"Residence Hall"</span>) {</span>
+<span id="cb4-4"><a href="#cb4-4"></a>      <span class="st">"red"</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a>    }<span class="cf">else</span> <span class="cf">if</span>(Type <span class="sc">==</span> <span class="st">"University Apartment"</span>){</span>
+<span id="cb4-6"><a href="#cb4-6"></a>      <span class="st">"gray"</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a>    }<span class="cf">else</span> <span class="cf">if</span>(Type <span class="sc">==</span> <span class="st">"Administrative"</span>) {</span>
+<span id="cb4-8"><a href="#cb4-8"></a>      <span class="st">"green"</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a>    }<span class="cf">else</span> <span class="cf">if</span>(Type <span class="sc">==</span> <span class="st">"Academic"</span>) {</span>
+<span id="cb4-10"><a href="#cb4-10"></a>      <span class="st">"orange"</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a>    }<span class="cf">else</span> <span class="cf">if</span>(Type <span class="sc">==</span> <span class="st">"Recreation"</span>) {</span>
+<span id="cb4-12"><a href="#cb4-12"></a>      <span class="st">"white"</span></span>
+<span id="cb4-13"><a href="#cb4-13"></a>    }<span class="cf">else</span> <span class="cf">if</span>(Type <span class="sc">==</span> <span class="st">"Religious Institution"</span>){</span>
+<span id="cb4-14"><a href="#cb4-14"></a>      <span class="st">"blue"</span></span>
+<span id="cb4-15"><a href="#cb4-15"></a>    }<span class="cf">else</span> <span class="cf">if</span>(Type <span class="sc">==</span> <span class="st">"Parking"</span>) {</span>
+<span id="cb4-16"><a href="#cb4-16"></a>      <span class="st">"purple"</span></span>
+<span id="cb4-17"><a href="#cb4-17"></a>    }<span class="cf">else</span>{</span>
+<span id="cb4-18"><a href="#cb4-18"></a>      <span class="st">"cadetblue"</span></span>
+<span id="cb4-19"><a href="#cb4-19"></a>    } })</span>
+<span id="cb4-20"><a href="#cb4-20"></a>}</span>
+<span id="cb4-21"><a href="#cb4-21"></a></span>
+<span id="cb4-22"><a href="#cb4-22"></a>icons <span class="ot">&lt;-</span> <span class="fu">awesomeIcons</span>(</span>
+<span id="cb4-23"><a href="#cb4-23"></a>  <span class="at">icon =</span> <span class="st">'ios-close'</span>,</span>
+<span id="cb4-24"><a href="#cb4-24"></a>  <span class="at">iconColor =</span> <span class="st">'black'</span>,</span>
+<span id="cb4-25"><a href="#cb4-25"></a>  <span class="at">library =</span> <span class="st">"ion"</span>,</span>
+<span id="cb4-26"><a href="#cb4-26"></a>  <span class="at">markerColor =</span> getColor</span>
+<span id="cb4-27"><a href="#cb4-27"></a>)</span>
+<span id="cb4-28"><a href="#cb4-28"></a></span>
+<span id="cb4-29"><a href="#cb4-29"></a><span class="fu">leaflet</span>(xl_file) <span class="sc">|&gt;</span></span>
+<span id="cb4-30"><a href="#cb4-30"></a>  <span class="fu">addTiles</span>() <span class="sc">|&gt;</span></span>
+<span id="cb4-31"><a href="#cb4-31"></a>  <span class="fu">addAwesomeMarkers</span>(<span class="at">lng =</span> <span class="sc">~</span>Longitude, <span class="at">lat =</span> <span class="sc">~</span>Latitude, <span class="at">icon=</span>icons, <span class="at">label=</span><span class="sc">~</span><span class="fu">as.character</span>(Type))</span>
+<span id="cb4-32"><a href="#cb4-32"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-9f8def0f6ed9e3e3a1b8" style="width:960px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-9f8def0f6ed9e3e3a1b8">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addAwesomeMarkers","args":[[43.03934,43.040426,43.04097,43.03905,43.039442,43.040132,43.039054,43.039023,43.038877,43.039673,43.038383,43.040018,43.039015,43.040407,43.03963,43.036768,43.037368,43.037446,43.038254,43.038289,43.037046,43.03834,43.036968,43.038325,43.038278,43.036427,43.037148,43.036505,43.036764,43.038979,43.040022,43.037611,43.038383,43.036752,43.037521,43.038338,43.036494,43.032091,43.037707,43.040452,43.039902,43.036642,43.037057,43.03709,43.03903,43.037958,43.039826,43.039587,43.040913,43.039532,43.039525,43.038125,43.038129,43.037358,43.040679,43.040797,43.040104,43.039193,43.040124,43.040396,43.040141,43.040378,43.040094,43.040404],[-87.92837,-87.931875,-87.933926,-87.925566,-87.926166,-87.93346,-87.933125,-87.934586,-87.937448,-87.928968,-87.923646,-87.934769,-87.926058,-87.934501,-87.930935,-87.932056,-87.928442,-87.932524,-87.928759,-87.93616,-87.926987,-87.933582,-87.927793,-87.93218,-87.93157,-87.932359,-87.933428,-87.933562,-87.928756,-87.929409,-87.929748,-87.931058,-87.926718,-87.929565,-87.931892,-87.926146,-87.930574,-87.936116,-87.927777,-87.932696,-87.931935,-87.931159,-87.930585,-87.931151,-87.92796,-87.927256,-87.927583,-87.926773,-87.928332,-87.933556,-87.930004,-87.930875,-87.929684,-87.929519,-87.932698,-87.932538,-87.933455,-87.933109,-87.933122,-87.934006,-87.933743,-87.932624,-87.93362,-87.933148],{"icon":"ios-close","markerColor":["function (xl_file) ","{","    sapply(xl_file$Type, function(Type) {","        if (Type == \"Residence Hall\") {","            \"red\"","        }","        else if (Type == \"University Apartment\") {","            \"gray\"","        }","        else if (Type == \"Administrative\") {","            \"green\"","        }","        else if (Type == \"Academic\") {","            \"orange\"","        }","        else if (Type == \"Recreation\") {","            \"white\"","        }","        else if (Type == \"Religious Institution\") {","            \"blue\"","        }","        else if (Type == \"Parking\") {","            \"purple\"","        }","        else {","            \"cadetblue\"","        }","    })","}"],"iconColor":"black","spin":false,"squareMarker":false,"iconRotate":0,"font":"monospace","prefix":"ion"},null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},null,null,null,null,["Residence Hall","University Apartment","University Apartment","Residence Hall","Residence Hall","University Apartment","University Apartment","Residence Hall","Residence Hall","Residence Hall","Residence Hall","Residence Hall","Administrative","Academic","Administrative","Academic","Academic","Academic","Academic","Academic","Academic","Academic","Recreation","Academic","Academic","Recreation","Recreation","Recreation","Recreation","Recreation","Residence Hall","Religious Institution","Academic","Academic","Academic","Administrative","Administrative","Recreation","Academic","Recreation","Recreation","Academic","Academic","Academic","Administrative","Religious Institution","Academic","Recreation","Parking","Parking","Recreation","Academic","Academic","Recreation","Academic","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[43.032091,43.04097],"lng":[-87.937448,-87.923646]}},"evals":[],"jsHooks":[]}</script>
+</div>
 </div>
 </section>
 <section id="slide-with-new-icons" class="slide level2">
 <h2>slide with new icons</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-f7d4596c3dcfd31c716e" style="width:960px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-f7d4596c3dcfd31c716e">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addAwesomeMarkers","args":[[43.03934,43.040426,43.04097,43.03905,43.039442,43.040132,43.039054,43.039023,43.038877,43.039673,43.038383,43.040018,43.039015,43.040407,43.03963,43.036768,43.037368,43.037446,43.038254,43.038289,43.037046,43.03834,43.036968,43.038325,43.038278,43.036427,43.037148,43.036505,43.036764,43.038979,43.040022,43.037611,43.038383,43.036752,43.037521,43.038338,43.036494,43.032091,43.037707,43.040452,43.039902,43.036642,43.037057,43.03709,43.03903,43.037958,43.039826,43.039587,43.040913,43.039532,43.039525,43.038125,43.038129,43.037358,43.040679,43.040797,43.040104,43.039193,43.040124,43.040396,43.040141,43.040378,43.040094,43.040404],[-87.92837,-87.931875,-87.933926,-87.925566,-87.926166,-87.93346,-87.933125,-87.934586,-87.937448,-87.928968,-87.923646,-87.934769,-87.926058,-87.934501,-87.930935,-87.932056,-87.928442,-87.932524,-87.928759,-87.93616,-87.926987,-87.933582,-87.927793,-87.93218,-87.93157,-87.932359,-87.933428,-87.933562,-87.928756,-87.929409,-87.929748,-87.931058,-87.926718,-87.929565,-87.931892,-87.926146,-87.930574,-87.936116,-87.927777,-87.932696,-87.931935,-87.931159,-87.930585,-87.931151,-87.92796,-87.927256,-87.927583,-87.926773,-87.928332,-87.933556,-87.930004,-87.930875,-87.929684,-87.929519,-87.932698,-87.932538,-87.933455,-87.933109,-87.933122,-87.934006,-87.933743,-87.932624,-87.93362,-87.933148],{"icon":"ios-close","markerColor":{"Residence Hall":"red","University Apartment":"darkred","University Apartment.1":"darkred","Residence Hall.1":"red","Residence Hall.2":"red","University Apartment.2":"darkred","University Apartment.3":"darkred","Residence Hall.3":"red","Residence Hall.4":"red","Residence Hall.5":"red","Residence Hall.6":"red","Residence Hall.7":"red","Administrative":"green","Academic":"orange","Administrative.1":"green","Academic.1":"orange","Academic.2":"orange","Academic.3":"orange","Academic.4":"orange","Academic.5":"orange","Academic.6":"orange","Academic.7":"orange","Recreation":"darkgreen","Academic.8":"orange","Academic.9":"orange","Recreation.1":"darkgreen","Recreation.2":"darkgreen","Recreation.3":"darkgreen","Recreation.4":"darkgreen","Recreation.5":"darkgreen","Residence Hall.8":"red","Religious Institution":"blue","Academic.10":"orange","Academic.11":"orange","Academic.12":"orange","Administrative.2":"green","Administrative.3":"green","Recreation.6":"darkgreen","Academic.13":"orange","Recreation.7":"darkgreen","Recreation.8":"darkgreen","Academic.14":"orange","Academic.15":"orange","Academic.16":"orange","Administrative.4":"green","Religious Institution.1":"blue","Academic.17":"orange","Recreation.9":"darkgreen","Parking":"purple","Parking.1":"purple","Recreation.10":"darkgreen","Academic.18":"orange","Academic.19":"orange","Recreation.11":"darkgreen","Academic.20":"orange","Food + Entertainment":"cadetblue","Food + Entertainment.1":"cadetblue","Food + Entertainment.2":"cadetblue","Food + Entertainment.3":"cadetblue","Food + Entertainment.4":"cadetblue","Food + Entertainment.5":"cadetblue","Food + Entertainment.6":"cadetblue","Food + Entertainment.7":"cadetblue","Food + Entertainment.8":"cadetblue"},"iconColor":"black","spin":false,"squareMarker":false,"iconRotate":0,"font":"monospace","prefix":"ion"},null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Abbottsford Hall","Campus Town East","Campus Town West","M. Carpenter Tower Hall","Charles Cobeen Hall","Frenn Building","Gilman Building","Glenn Humphrey Hall","Mashuda Hall","Schroeder Hall","David A. Straz, Jr., Tower Hall","The Commons","707 Building","1700 Building","Alumni Memorial Union","Emory T. Clark Hall","Coughlin Hall","Cramer Hall","Cudahy Hall","School of Dentistry","Ray and Kay Eckstein Hall","Engineering Hall","Haggerty Museum of Art","Haggerty Hall","Olin Engineering Center","ROTC Gymnasium","Halfaer Building","Halfaer Tennis Stadium","Halfaer Theatre","Holthusen Hall (Varsity Theater)","Dr. E.J. O'Brien Jesuit Residence","St. Joan of Arc Chapel","Johnston Hall","Lalumiere Language Hall","Schroeder Complex","Sensenbrenner Hall","Facilities Service Building","Valley Fields","David A. Straz, Jr., Hall","Union Sports Annex","Weasler Auditorium","Wehr Life Sciences","Wehr Chemistry","Wehr Physics","Zilber Hall","Church of the Gesu","Athletic & Human \r\nPerformance Research Center","Al McGuire Center","Wells Street Structure","16th Street Structure","Eckstein Common","Memorial Library","Raynor Library","Academic Quad","Book Marq","Sendik's","Murphy's Pub","Caffrey's","Sobelman's (RIP)","7-ELEVEN","Broken Yolk","Jimmy John's","Real Chili","Qdoba"],null,null,null,["Residence Hall","University Apartment","University Apartment","Residence Hall","Residence Hall","University Apartment","University Apartment","Residence Hall","Residence Hall","Residence Hall","Residence Hall","Residence Hall","Administrative","Academic","Administrative","Academic","Academic","Academic","Academic","Academic","Academic","Academic","Recreation","Academic","Academic","Recreation","Recreation","Recreation","Recreation","Recreation","Residence Hall","Religious Institution","Academic","Academic","Academic","Administrative","Administrative","Recreation","Academic","Recreation","Recreation","Academic","Academic","Academic","Administrative","Religious Institution","Academic","Recreation","Parking","Parking","Recreation","Academic","Academic","Recreation","Academic","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[43.032091,43.04097],"lng":[-87.937448,-87.923646]}},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-9aa55eaa0d88f64495f5" style="width:960px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-9aa55eaa0d88f64495f5">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addAwesomeMarkers","args":[[43.03934,43.040426,43.04097,43.03905,43.039442,43.040132,43.039054,43.039023,43.038877,43.039673,43.038383,43.040018,43.039015,43.040407,43.03963,43.036768,43.037368,43.037446,43.038254,43.038289,43.037046,43.03834,43.036968,43.038325,43.038278,43.036427,43.037148,43.036505,43.036764,43.038979,43.040022,43.037611,43.038383,43.036752,43.037521,43.038338,43.036494,43.032091,43.037707,43.040452,43.039902,43.036642,43.037057,43.03709,43.03903,43.037958,43.039826,43.039587,43.040913,43.039532,43.039525,43.038125,43.038129,43.037358,43.040679,43.040797,43.040104,43.039193,43.040124,43.040396,43.040141,43.040378,43.040094,43.040404],[-87.92837,-87.931875,-87.933926,-87.925566,-87.926166,-87.93346,-87.933125,-87.934586,-87.937448,-87.928968,-87.923646,-87.934769,-87.926058,-87.934501,-87.930935,-87.932056,-87.928442,-87.932524,-87.928759,-87.93616,-87.926987,-87.933582,-87.927793,-87.93218,-87.93157,-87.932359,-87.933428,-87.933562,-87.928756,-87.929409,-87.929748,-87.931058,-87.926718,-87.929565,-87.931892,-87.926146,-87.930574,-87.936116,-87.927777,-87.932696,-87.931935,-87.931159,-87.930585,-87.931151,-87.92796,-87.927256,-87.927583,-87.926773,-87.928332,-87.933556,-87.930004,-87.930875,-87.929684,-87.929519,-87.932698,-87.932538,-87.933455,-87.933109,-87.933122,-87.934006,-87.933743,-87.932624,-87.93362,-87.933148],{"icon":"ios-close","markerColor":["function (xl_file) ","{","    sapply(xl_file$Type, function(Type) {","        if (Type == \"Residence Hall\") {","            \"red\"","        }","        else if (Type == \"University Apartment\") {","            \"gray\"","        }","        else if (Type == \"Administrative\") {","            \"green\"","        }","        else if (Type == \"Academic\") {","            \"orange\"","        }","        else if (Type == \"Recreation\") {","            \"white\"","        }","        else if (Type == \"Religious Institution\") {","            \"blue\"","        }","        else if (Type == \"Parking\") {","            \"purple\"","        }","        else {","            \"cadetblue\"","        }","    })","}"],"iconColor":"black","spin":false,"squareMarker":false,"iconRotate":0,"font":"monospace","prefix":"ion"},null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Abbottsford Hall","Campus Town East","Campus Town West","M. Carpenter Tower Hall","Charles Cobeen Hall","Frenn Building","Gilman Building","Glenn Humphrey Hall","Mashuda Hall","Schroeder Hall","David A. Straz, Jr., Tower Hall","The Commons","707 Building","1700 Building","Alumni Memorial Union","Emory T. Clark Hall","Coughlin Hall","Cramer Hall","Cudahy Hall","School of Dentistry","Ray and Kay Eckstein Hall","Engineering Hall","Haggerty Museum of Art","Haggerty Hall","Olin Engineering Center","ROTC Gymnasium","Halfaer Building","Halfaer Tennis Stadium","Halfaer Theatre","Holthusen Hall (Varsity Theater)","Dr. E.J. O'Brien Jesuit Residence","St. Joan of Arc Chapel","Johnston Hall","Lalumiere Language Hall","Schroeder Complex","Sensenbrenner Hall","Facilities Service Building","Valley Fields","David A. Straz, Jr., Hall","Union Sports Annex","Weasler Auditorium","Wehr Life Sciences","Wehr Chemistry","Wehr Physics","Zilber Hall","Church of the Gesu","Athletic & Human \r\nPerformance Research Center","Al McGuire Center","Wells Street Structure","16th Street Structure","Eckstein Common","Memorial Library","Raynor Library","Academic Quad","Book Marq","Sendik's","Murphy's Pub","Caffrey's","Sobelman's (RIP)","7-ELEVEN","Broken Yolk","Jimmy John's","Real Chili","Qdoba"],null,null,null,["Residence Hall","University Apartment","University Apartment","Residence Hall","Residence Hall","University Apartment","University Apartment","Residence Hall","Residence Hall","Residence Hall","Residence Hall","Residence Hall","Administrative","Academic","Administrative","Academic","Academic","Academic","Academic","Academic","Academic","Academic","Recreation","Academic","Academic","Recreation","Recreation","Recreation","Recreation","Recreation","Residence Hall","Religious Institution","Academic","Academic","Academic","Administrative","Administrative","Recreation","Academic","Recreation","Recreation","Academic","Academic","Academic","Administrative","Religious Institution","Academic","Recreation","Parking","Parking","Recreation","Academic","Academic","Recreation","Academic","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[43.032091,43.04097],"lng":[-87.937448,-87.923646]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 
