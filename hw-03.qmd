@@ -3,6 +3,7 @@ title: "Web Mapping With Leaflet"
 subtitle: "Team Analytics and Beyond"
 format: 
   revealjs:
+    smaller: true
     slide-number: c/t   
     logo: "https://upload.wikimedia.org/wikipedia/commons/e/e8/Marquette_Golden_Eagles_logo.svg"
 date: "`r Sys.Date()`"
@@ -36,14 +37,7 @@ if (any(installed_packages == FALSE)) {
 invisible(lapply(packages, library, character.only = TRUE))
 ```
 
-<<<<<<< HEAD
 ## Leaflet Package 
----
-title: "Untitled"
-format: 
-  revealjs:
-    smaller: true
----
 
 - The leaflet package allows users to create interactive maps where you can custom icons, markers, layers, etc. To create a leaflet map all you need is the longitude and latitude of a location or locations. 
 
@@ -116,31 +110,6 @@ functions:
 - Once we create our data based on the longitude and latitude we can let R read the data. 
 ```{r}
 #| echo: fenced
-=======
-## First Slide
-Explain what leaflet is
-
-## Second Slide
-Side by side of leaflet map versus static map (picture of map?)
-Explain why leaflet is better and show some features
-
-## More about why it's better
-maybe some slides about situations in which leaflet is better than static map
-(using examples from the documentation site)
-
-## Show what we created
-end product of marquette map
-
-## Then some slides for the demo
-show how we created the map
-
-## Conclusion-ish slide
-revisit what was learned in the demo and how it can be useful
-
-## Our data
-```{r}
-#|echo: false
->>>>>>> d3951914b2bc621b3a0e4da28ef2bf9c08ca7757
 
 library(leaflet)
 
@@ -149,23 +118,14 @@ xl_file
 
 ```
 
-<<<<<<< HEAD
 ## Turning Data into Map
-=======
-##
-
->>>>>>> d3951914b2bc621b3a0e4da28ef2bf9c08ca7757
 ```{r}
 #| echo: fenced 
 
 m <- leaflet(data = xl_file) %>%
   addTiles() %>%
-<<<<<<< HEAD
   addMarkers(lat = ~Latitude , lng = ~Longitude , popup = ~as.character(Type), label = ~as.character(Type))
-=======
-  addMarkers(lat = ~Latitude , lng = ~Longitude , popup = ~Type, label = ~Location)
 
->>>>>>> d3951914b2bc621b3a0e4da28ef2bf9c08ca7757
 m
 ```
 
@@ -207,10 +167,6 @@ icons <- awesomeIcons(
 #  addAwesomeMarkers(~lat, ~lng, icon=icons, label=~as.character(Type))
 ```
 
-<<<<<<< HEAD
-=======
-```
-
 ## slide with new icons
 ```{r}
 leaflet(xl_file) |>
@@ -218,4 +174,4 @@ leaflet(xl_file) |>
   addAwesomeMarkers(lng = ~Longitude, lat = ~Latitude, popup = ~Location, icon=icons,
                     label=~as.character(Type))
 ```
->>>>>>> d3951914b2bc621b3a0e4da28ef2bf9c08ca7757
+

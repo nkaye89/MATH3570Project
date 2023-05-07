@@ -10,11 +10,7 @@
   <meta name="generator" content="quarto-1.2.475">
 
   <meta name="author" content="Andrew Hiller, Annie Gibbons, Caroline Kwak, Noah Kaye">
-<<<<<<< HEAD
-  <title>Untitled</title>
-=======
   <title>Web Mapping With Leaflet</title>
->>>>>>> d3951914b2bc621b3a0e4da28ef2bf9c08ca7757
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -404,11 +400,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-<<<<<<< HEAD
-  <h1 class="title">Untitled</h1>
-=======
   <h1 class="title">Web Mapping With Leaflet</h1>
->>>>>>> d3951914b2bc621b3a0e4da28ef2bf9c08ca7757
   <p class="subtitle">Team Analytics and Beyond</p>
 
 <div class="quarto-title-authors">
@@ -420,10 +412,9 @@
 </div>
 
   <p class="date">5/7/23</p>
-<<<<<<< HEAD
 </section>
-<section id="leaflet-package" class="slide level2" data-number="1">
-<h2><span class="header-section-number">1</span> Leaflet Package</h2>
+<section id="leaflet-package" class="slide level2">
+<h2>Leaflet Package</h2>
 <ul>
 <li>The leaflet package allows users to create interactive maps where you can custom icons, markers, layers, etc. To create a leaflet map all you need is the longitude and latitude of a location or locations.</li>
 </ul>
@@ -431,17 +422,21 @@
 <ul>
 <li>Advantages of leaflet include its versatility, compatibility, flexibility, exceptional dynamic maps, aesthetic features, ability to create mobile maps while working with shiny() to post interactive maps to websites.</li>
 </ul>
-<p>. . . - It is used by famous websites like the New York Times and Mapbox for interactive maps.</p>
+</div>
+<div class="fragment">
+<ul>
+<li>It is used by famous websites like the New York Times and Mapbox for interactive maps.</li>
+</ul>
 </div>
 </section>
-<section id="howwhy-does-this-package-help-us-do-data-science" class="slide level2" data-number="2">
-<h2><span class="header-section-number">2</span> How/Why does this package help us do data science?</h2>
+<section id="howwhy-does-this-package-help-us-do-data-science" class="slide level2">
+<h2>How/Why does this package help us do data science?</h2>
 <ul>
 <li>This package helps us do data science because it can be easily used to visualize spatial data with a wide range of features such as searching, zooming and switching between layers.</li>
 </ul>
 </section>
-<section id="usage-initializing-the-window" class="slide level2" data-number="3">
-<h2><span class="header-section-number">3</span> Usage: Initializing the Window</h2>
+<section id="usage-initializing-the-window" class="slide level2">
+<h2>Usage: Initializing the Window</h2>
 <p>initializing creates the window for other functions to add to</p>
 <p>functions:</p>
 <ul>
@@ -468,40 +463,47 @@
 </ul>
 </div>
 </section>
-<section id="reading-data-form-excel" class="slide level2" data-number="4">
-<h2><span class="header-section-number">4</span> Reading Data form Excel</h2>
+<section id="creating-maps" class="slide level2">
+<h2>Creating Maps</h2>
+<p>creating the map requires “tiles” that tell Leaflet what type of map to output</p>
+<p>functions:</p>
+<ul>
+<li>addTiles(): adding OpenStreetMap base map</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>addProviderTiles(): adding third-party provided base maps (via plugin)</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>addWMSTiles(): Web Map Services tiles (via the internet)</li>
+</ul>
+</div>
+</section>
+<section id="adding-shapes" class="slide level2">
+<h2>Adding Shapes</h2>
+<p>allows user to put in country, state, counties, etc. shapes in the map to connect to data</p>
+<p>functions:</p>
+<ul>
+<li>addPolygons(): add map shapes (countries, states, counties, etc.)</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>addCircles(): given radius around a point</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>addRectangles(): 4 given points</li>
+</ul>
+</div>
+</section>
+<section id="reading-data-form-excel" class="slide level2">
+<h2>Reading Data form Excel</h2>
 <ul>
 <li>Once we create our data based on the longitude and latitude we can let R read the data.</li>
 </ul>
-=======
-</section>
-<section id="first-slide" class="slide level2">
-<h2>First Slide</h2>
-<p>Explain what leaflet is</p>
-</section>
-<section id="second-slide" class="slide level2">
-<h2>Second Slide</h2>
-<p>Side by side of leaflet map versus static map (picture of map?) Explain why leaflet is better and show some features</p>
-</section>
-<section id="more-about-why-its-better" class="slide level2">
-<h2>More about why it’s better</h2>
-<p>maybe some slides about situations in which leaflet is better than static map (using examples from the documentation site)</p>
-</section>
-<section id="show-what-we-created" class="slide level2">
-<h2>Show what we created</h2>
-<p>end product of marquette map</p>
-</section>
-<section id="then-some-slides-for-the-demo" class="slide level2">
-<h2>Then some slides for the demo</h2>
-<p>show how we created the map</p>
-</section>
-<section id="conclusion-ish-slide" class="slide level2">
-<h2>Conclusion-ish slide</h2>
-<p>revisit what was learned in the demo and how it can be useful</p>
-</section>
-<section id="our-data" class="slide level2">
-<h2>Our data</h2>
->>>>>>> d3951914b2bc621b3a0e4da28ef2bf9c08ca7757
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="in">```{r}</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(leaflet)</span>
@@ -524,48 +526,25 @@
  9 Mashuda Hall            Residence Hall           43.0     -87.9
 10 Schroeder Hall          Residence Hall           43.0     -87.9
 # ℹ 54 more rows</code></pre>
-<<<<<<< HEAD
 </div>
 </div>
-</section>
-<section id="turning-data-into-map" class="slide level2" data-number="5">
-<h2><span class="header-section-number">5</span> Turning Data into Map</h2>
-=======
-</div>
-</div>
-</section>
-<section id="section" class="slide level2">
-<h2></h2>
-<div class="cell">
-<div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-9cb21f4bb818e16bdf72" style="width:960px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-9cb21f4bb818e16bdf72">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[[43.03934,43.040426,43.04097,43.03905,43.039442,43.040132,43.039054,43.039023,43.038877,43.039673,43.038383,43.040018,43.039015,43.040407,43.03963,43.036768,43.037368,43.037446,43.038254,43.038289,43.037046,43.03834,43.036968,43.038325,43.038278,43.036427,43.037148,43.036505,43.036764,43.038979,43.040022,43.037611,43.038383,43.036752,43.037521,43.038338,43.036494,43.032091,43.037707,43.040452,43.039902,43.036642,43.037057,43.03709,43.03903,43.037958,43.039826,43.039587,43.040913,43.039532,43.039525,43.038125,43.038129,43.037358,43.040679,43.040797,43.040104,43.039193,43.040124,43.040396,43.040141,43.040378,43.040094,43.040404],[-87.92837,-87.931875,-87.933926,-87.925566,-87.926166,-87.93346,-87.933125,-87.934586,-87.937448,-87.928968,-87.923646,-87.934769,-87.926058,-87.934501,-87.930935,-87.932056,-87.928442,-87.932524,-87.928759,-87.93616,-87.926987,-87.933582,-87.927793,-87.93218,-87.93157,-87.932359,-87.933428,-87.933562,-87.928756,-87.929409,-87.929748,-87.931058,-87.926718,-87.929565,-87.931892,-87.926146,-87.930574,-87.936116,-87.927777,-87.932696,-87.931935,-87.931159,-87.930585,-87.931151,-87.92796,-87.927256,-87.927583,-87.926773,-87.928332,-87.933556,-87.930004,-87.930875,-87.929684,-87.929519,-87.932698,-87.932538,-87.933455,-87.933109,-87.933122,-87.934006,-87.933743,-87.932624,-87.93362,-87.933148],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Residence Hall","University Apartment","University Apartment","Residence Hall","Residence Hall","University Apartment","University Apartment","Residence Hall","Residence Hall","Residence Hall","Residence Hall","Residence Hall","Administrative","Academic","Administrative","Academic","Academic","Academic","Academic","Academic","Academic","Academic","Recreation","Academic","Academic","Recreation","Recreation","Recreation","Recreation","Recreation","Residence Hall","Religious Institution","Academic","Academic","Academic","Administrative","Administrative","Recreation","Academic","Recreation","Recreation","Academic","Academic","Academic","Administrative","Religious Institution","Academic","Recreation","Parking","Parking","Recreation","Academic","Academic","Recreation","Academic","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment"],null,null,null,["Abbottsford Hall","Campus Town East","Campus Town West","M. Carpenter Tower Hall","Charles Cobeen Hall","Frenn Building","Gilman Building","Glenn Humphrey Hall","Mashuda Hall","Schroeder Hall","David A. Straz, Jr., Tower Hall","The Commons","707 Building","1700 Building","Alumni Memorial Union","Emory T. Clark Hall","Coughlin Hall","Cramer Hall","Cudahy Hall","School of Dentistry","Ray and Kay Eckstein Hall","Engineering Hall","Haggerty Museum of Art","Haggerty Hall","Olin Engineering Center","ROTC Gymnasium","Halfaer Building","Halfaer Tennis Stadium","Halfaer Theatre","Holthusen Hall (Varsity Theater)","Dr. E.J. O'Brien Jesuit Residence","St. Joan of Arc Chapel","Johnston Hall","Lalumiere Language Hall","Schroeder Complex","Sensenbrenner Hall","Facilities Service Building","Valley Fields","David A. Straz, Jr., Hall","Union Sports Annex","Weasler Auditorium","Wehr Life Sciences","Wehr Chemistry","Wehr Physics","Zilber Hall","Church of the Gesu","Athletic &amp; Human \r\nPerformance Research Center","Al McGuire Center","Wells Street Structure","16th Street Structure","Eckstein Common","Memorial Library","Raynor Library","Academic Quad","Book Marq","Sendik's","Murphy's Pub","Caffrey's","Sobelman's (RIP)","7-ELEVEN","Broken Yolk","Jimmy John's","Real Chili","Qdoba"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[43.032091,43.04097],"lng":[-87.937448,-87.923646]}},"evals":[],"jsHooks":[]}</script>
-</div>
-</div>
-</section>
-<section id="slide-with-new-icons" class="slide level2">
-<h2>slide with new icons</h2>
->>>>>>> d3951914b2bc621b3a0e4da28ef2bf9c08ca7757
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD ## Turning Data into Map</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a><span class="in">```{r}</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a>m <span class="ot">&lt;-</span> <span class="fu">leaflet</span>(<span class="at">data =</span> xl_file) <span class="sc">%&gt;%</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb3-4"><a href="#cb3-4"></a>  <span class="fu">addMarkers</span>(<span class="at">lat =</span> <span class="sc">~</span>Latitude , <span class="at">lng =</span> <span class="sc">~</span>Longitude , <span class="at">popup =</span> <span class="sc">~</span><span class="fu">as.character</span>(Type), <span class="at">label =</span> <span class="sc">~</span><span class="fu">as.character</span>(Type))</span>
-<span id="cb3-5"><a href="#cb3-5"></a>m</span>
-<span id="cb3-6"><a href="#cb3-6"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-5"><a href="#cb3-5"></a></span>
+<span id="cb3-6"><a href="#cb3-6"></a>m</span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<<<<<<< HEAD
-<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-75d2b596396d2157cf24" style="width:960px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-75d2b596396d2157cf24">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[[43.03934,43.040426,43.04097,43.03905,43.039442,43.040132,43.039054,43.039023,43.038877,43.039673,43.038383,43.040018,43.039015,43.040407,43.03963,43.036768,43.037368,43.037446,43.038254,43.038289,43.037046,43.03834,43.036968,43.038325,43.038278,43.036427,43.037148,43.036505,43.036764,43.038979,43.040022,43.037611,43.038383,43.036752,43.037521,43.038338,43.036494,43.032091,43.037707,43.040452,43.039902,43.036642,43.037057,43.03709,43.03903,43.037958,43.039826,43.039587,43.040913,43.039532,43.039525,43.038125,43.038129,43.037358,43.040679,43.040797,43.040104,43.039193,43.040124,43.040396,43.040141,43.040378,43.040094,43.040404],[-87.92837,-87.931875,-87.933926,-87.925566,-87.926166,-87.93346,-87.933125,-87.934586,-87.937448,-87.928968,-87.923646,-87.934769,-87.926058,-87.934501,-87.930935,-87.932056,-87.928442,-87.932524,-87.928759,-87.93616,-87.926987,-87.933582,-87.927793,-87.93218,-87.93157,-87.932359,-87.933428,-87.933562,-87.928756,-87.929409,-87.929748,-87.931058,-87.926718,-87.929565,-87.931892,-87.926146,-87.930574,-87.936116,-87.927777,-87.932696,-87.931935,-87.931159,-87.930585,-87.931151,-87.92796,-87.927256,-87.927583,-87.926773,-87.928332,-87.933556,-87.930004,-87.930875,-87.929684,-87.929519,-87.932698,-87.932538,-87.933455,-87.933109,-87.933122,-87.934006,-87.933743,-87.932624,-87.93362,-87.933148],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Residence Hall","University Apartment","University Apartment","Residence Hall","Residence Hall","University Apartment","University Apartment","Residence Hall","Residence Hall","Residence Hall","Residence Hall","Residence Hall","Administrative","Academic","Administrative","Academic","Academic","Academic","Academic","Academic","Academic","Academic","Recreation","Academic","Academic","Recreation","Recreation","Recreation","Recreation","Recreation","Residence Hall","Religious Institution","Academic","Academic","Academic","Administrative","Administrative","Recreation","Academic","Recreation","Recreation","Academic","Academic","Academic","Administrative","Religious Institution","Academic","Recreation","Parking","Parking","Recreation","Academic","Academic","Recreation","Academic","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment"],null,null,null,["Residence Hall","University Apartment","University Apartment","Residence Hall","Residence Hall","University Apartment","University Apartment","Residence Hall","Residence Hall","Residence Hall","Residence Hall","Residence Hall","Administrative","Academic","Administrative","Academic","Academic","Academic","Academic","Academic","Academic","Academic","Recreation","Academic","Academic","Recreation","Recreation","Recreation","Recreation","Recreation","Residence Hall","Religious Institution","Academic","Academic","Academic","Administrative","Administrative","Recreation","Academic","Recreation","Recreation","Academic","Academic","Academic","Administrative","Religious Institution","Academic","Recreation","Parking","Parking","Recreation","Academic","Academic","Recreation","Academic","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[43.032091,43.04097],"lng":[-87.937448,-87.923646]}},"evals":[],"jsHooks":[]}</script>
-=======
-<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-e673322078aa4eb671cd" style="width:960px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-e673322078aa4eb671cd">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addAwesomeMarkers","args":[[43.03934,43.040426,43.04097,43.03905,43.039442,43.040132,43.039054,43.039023,43.038877,43.039673,43.038383,43.040018,43.039015,43.040407,43.03963,43.036768,43.037368,43.037446,43.038254,43.038289,43.037046,43.03834,43.036968,43.038325,43.038278,43.036427,43.037148,43.036505,43.036764,43.038979,43.040022,43.037611,43.038383,43.036752,43.037521,43.038338,43.036494,43.032091,43.037707,43.040452,43.039902,43.036642,43.037057,43.03709,43.03903,43.037958,43.039826,43.039587,43.040913,43.039532,43.039525,43.038125,43.038129,43.037358,43.040679,43.040797,43.040104,43.039193,43.040124,43.040396,43.040141,43.040378,43.040094,43.040404],[-87.92837,-87.931875,-87.933926,-87.925566,-87.926166,-87.93346,-87.933125,-87.934586,-87.937448,-87.928968,-87.923646,-87.934769,-87.926058,-87.934501,-87.930935,-87.932056,-87.928442,-87.932524,-87.928759,-87.93616,-87.926987,-87.933582,-87.927793,-87.93218,-87.93157,-87.932359,-87.933428,-87.933562,-87.928756,-87.929409,-87.929748,-87.931058,-87.926718,-87.929565,-87.931892,-87.926146,-87.930574,-87.936116,-87.927777,-87.932696,-87.931935,-87.931159,-87.930585,-87.931151,-87.92796,-87.927256,-87.927583,-87.926773,-87.928332,-87.933556,-87.930004,-87.930875,-87.929684,-87.929519,-87.932698,-87.932538,-87.933455,-87.933109,-87.933122,-87.934006,-87.933743,-87.932624,-87.93362,-87.933148],{"icon":"ios-close","markerColor":{"Residence Hall":"purple","University Apartment":"orange","University Apartment.1":"orange","Residence Hall.1":"purple","Residence Hall.2":"purple","University Apartment.2":"orange","University Apartment.3":"orange","Residence Hall.3":"purple","Residence Hall.4":"purple","Residence Hall.5":"purple","Residence Hall.6":"purple","Residence Hall.7":"purple","Administrative":"green","Academic":"blue","Administrative.1":"green","Academic.1":"blue","Academic.2":"blue","Academic.3":"blue","Academic.4":"blue","Academic.5":"blue","Academic.6":"blue","Academic.7":"blue","Recreation":"red","Academic.8":"blue","Academic.9":"blue","Recreation.1":"red","Recreation.2":"red","Recreation.3":"red","Recreation.4":"red","Recreation.5":"red","Residence Hall.8":"purple","Religious Institution":"yellow","Academic.10":"blue","Academic.11":"blue","Academic.12":"blue","Administrative.2":"green","Administrative.3":"green","Recreation.6":"red","Academic.13":"blue","Recreation.7":"red","Recreation.8":"red","Academic.14":"blue","Academic.15":"blue","Academic.16":"blue","Administrative.4":"green","Religious Institution.1":"yellow","Academic.17":"blue","Recreation.9":"red","Parking":"black","Parking.1":"black","Recreation.10":"red","Academic.18":"blue","Academic.19":"blue","Recreation.11":"red","Academic.20":"blue","Food + Entertainment":"white","Food + Entertainment.1":"white","Food + Entertainment.2":"white","Food + Entertainment.3":"white","Food + Entertainment.4":"white","Food + Entertainment.5":"white","Food + Entertainment.6":"white","Food + Entertainment.7":"white","Food + Entertainment.8":"white"},"iconColor":"black","spin":false,"squareMarker":false,"iconRotate":0,"font":"monospace","prefix":"ion"},null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},null,null,null,null,["Residence Hall","University Apartment","University Apartment","Residence Hall","Residence Hall","University Apartment","University Apartment","Residence Hall","Residence Hall","Residence Hall","Residence Hall","Residence Hall","Administrative","Academic","Administrative","Academic","Academic","Academic","Academic","Academic","Academic","Academic","Recreation","Academic","Academic","Recreation","Recreation","Recreation","Recreation","Recreation","Residence Hall","Religious Institution","Academic","Academic","Academic","Administrative","Administrative","Recreation","Academic","Recreation","Recreation","Academic","Academic","Academic","Administrative","Religious Institution","Academic","Recreation","Parking","Parking","Recreation","Academic","Academic","Recreation","Academic","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[43.032091,43.04097],"lng":[-87.937448,-87.923646]}},"evals":[],"jsHooks":[]}</script>
->>>>>>> d3951914b2bc621b3a0e4da28ef2bf9c08ca7757
+<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-59a9535e666c5854498f" style="width:960px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-59a9535e666c5854498f">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[[43.03934,43.040426,43.04097,43.03905,43.039442,43.040132,43.039054,43.039023,43.038877,43.039673,43.038383,43.040018,43.039015,43.040407,43.03963,43.036768,43.037368,43.037446,43.038254,43.038289,43.037046,43.03834,43.036968,43.038325,43.038278,43.036427,43.037148,43.036505,43.036764,43.038979,43.040022,43.037611,43.038383,43.036752,43.037521,43.038338,43.036494,43.032091,43.037707,43.040452,43.039902,43.036642,43.037057,43.03709,43.03903,43.037958,43.039826,43.039587,43.040913,43.039532,43.039525,43.038125,43.038129,43.037358,43.040679,43.040797,43.040104,43.039193,43.040124,43.040396,43.040141,43.040378,43.040094,43.040404],[-87.92837,-87.931875,-87.933926,-87.925566,-87.926166,-87.93346,-87.933125,-87.934586,-87.937448,-87.928968,-87.923646,-87.934769,-87.926058,-87.934501,-87.930935,-87.932056,-87.928442,-87.932524,-87.928759,-87.93616,-87.926987,-87.933582,-87.927793,-87.93218,-87.93157,-87.932359,-87.933428,-87.933562,-87.928756,-87.929409,-87.929748,-87.931058,-87.926718,-87.929565,-87.931892,-87.926146,-87.930574,-87.936116,-87.927777,-87.932696,-87.931935,-87.931159,-87.930585,-87.931151,-87.92796,-87.927256,-87.927583,-87.926773,-87.928332,-87.933556,-87.930004,-87.930875,-87.929684,-87.929519,-87.932698,-87.932538,-87.933455,-87.933109,-87.933122,-87.934006,-87.933743,-87.932624,-87.93362,-87.933148],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Residence Hall","University Apartment","University Apartment","Residence Hall","Residence Hall","University Apartment","University Apartment","Residence Hall","Residence Hall","Residence Hall","Residence Hall","Residence Hall","Administrative","Academic","Administrative","Academic","Academic","Academic","Academic","Academic","Academic","Academic","Recreation","Academic","Academic","Recreation","Recreation","Recreation","Recreation","Recreation","Residence Hall","Religious Institution","Academic","Academic","Academic","Administrative","Administrative","Recreation","Academic","Recreation","Recreation","Academic","Academic","Academic","Administrative","Religious Institution","Academic","Recreation","Parking","Parking","Recreation","Academic","Academic","Recreation","Academic","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment"],null,null,null,["Residence Hall","University Apartment","University Apartment","Residence Hall","Residence Hall","University Apartment","University Apartment","Residence Hall","Residence Hall","Residence Hall","Residence Hall","Residence Hall","Administrative","Academic","Administrative","Academic","Academic","Academic","Academic","Academic","Academic","Academic","Recreation","Academic","Academic","Recreation","Recreation","Recreation","Recreation","Recreation","Residence Hall","Religious Institution","Academic","Academic","Academic","Administrative","Administrative","Recreation","Academic","Recreation","Recreation","Academic","Academic","Academic","Administrative","Religious Institution","Academic","Recreation","Parking","Parking","Recreation","Academic","Academic","Recreation","Academic","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[43.032091,43.04097],"lng":[-87.937448,-87.923646]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
-<section id="changing-color-based-on-type" class="slide level2" data-number="6">
-<h2><span class="header-section-number">6</span> Changing Color Based on Type</h2>
+<section id="changing-color-based-on-type" class="slide level2">
+<h2>Changing Color Based on Type</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a><span class="in">```{r}</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a>df <span class="ot">&lt;-</span> xl_file[<span class="dv">1</span><span class="sc">:</span><span class="dv">64</span>,]</span>
@@ -603,7 +582,17 @@
 <span id="cb4-34"><a href="#cb4-34"></a><span class="co">#  addAwesomeMarkers(~lat, ~lng, icon=icons, label=~as.character(Type))</span></span>
 <span id="cb4-35"><a href="#cb4-35"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="footer footer-default">
+</section>
+<section id="slide-with-new-icons" class="slide level2">
+<h2>slide with new icons</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-f7d4596c3dcfd31c716e" style="width:960px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-f7d4596c3dcfd31c716e">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addAwesomeMarkers","args":[[43.03934,43.040426,43.04097,43.03905,43.039442,43.040132,43.039054,43.039023,43.038877,43.039673,43.038383,43.040018,43.039015,43.040407,43.03963,43.036768,43.037368,43.037446,43.038254,43.038289,43.037046,43.03834,43.036968,43.038325,43.038278,43.036427,43.037148,43.036505,43.036764,43.038979,43.040022,43.037611,43.038383,43.036752,43.037521,43.038338,43.036494,43.032091,43.037707,43.040452,43.039902,43.036642,43.037057,43.03709,43.03903,43.037958,43.039826,43.039587,43.040913,43.039532,43.039525,43.038125,43.038129,43.037358,43.040679,43.040797,43.040104,43.039193,43.040124,43.040396,43.040141,43.040378,43.040094,43.040404],[-87.92837,-87.931875,-87.933926,-87.925566,-87.926166,-87.93346,-87.933125,-87.934586,-87.937448,-87.928968,-87.923646,-87.934769,-87.926058,-87.934501,-87.930935,-87.932056,-87.928442,-87.932524,-87.928759,-87.93616,-87.926987,-87.933582,-87.927793,-87.93218,-87.93157,-87.932359,-87.933428,-87.933562,-87.928756,-87.929409,-87.929748,-87.931058,-87.926718,-87.929565,-87.931892,-87.926146,-87.930574,-87.936116,-87.927777,-87.932696,-87.931935,-87.931159,-87.930585,-87.931151,-87.92796,-87.927256,-87.927583,-87.926773,-87.928332,-87.933556,-87.930004,-87.930875,-87.929684,-87.929519,-87.932698,-87.932538,-87.933455,-87.933109,-87.933122,-87.934006,-87.933743,-87.932624,-87.93362,-87.933148],{"icon":"ios-close","markerColor":{"Residence Hall":"red","University Apartment":"darkred","University Apartment.1":"darkred","Residence Hall.1":"red","Residence Hall.2":"red","University Apartment.2":"darkred","University Apartment.3":"darkred","Residence Hall.3":"red","Residence Hall.4":"red","Residence Hall.5":"red","Residence Hall.6":"red","Residence Hall.7":"red","Administrative":"green","Academic":"orange","Administrative.1":"green","Academic.1":"orange","Academic.2":"orange","Academic.3":"orange","Academic.4":"orange","Academic.5":"orange","Academic.6":"orange","Academic.7":"orange","Recreation":"darkgreen","Academic.8":"orange","Academic.9":"orange","Recreation.1":"darkgreen","Recreation.2":"darkgreen","Recreation.3":"darkgreen","Recreation.4":"darkgreen","Recreation.5":"darkgreen","Residence Hall.8":"red","Religious Institution":"blue","Academic.10":"orange","Academic.11":"orange","Academic.12":"orange","Administrative.2":"green","Administrative.3":"green","Recreation.6":"darkgreen","Academic.13":"orange","Recreation.7":"darkgreen","Recreation.8":"darkgreen","Academic.14":"orange","Academic.15":"orange","Academic.16":"orange","Administrative.4":"green","Religious Institution.1":"blue","Academic.17":"orange","Recreation.9":"darkgreen","Parking":"purple","Parking.1":"purple","Recreation.10":"darkgreen","Academic.18":"orange","Academic.19":"orange","Recreation.11":"darkgreen","Academic.20":"orange","Food + Entertainment":"cadetblue","Food + Entertainment.1":"cadetblue","Food + Entertainment.2":"cadetblue","Food + Entertainment.3":"cadetblue","Food + Entertainment.4":"cadetblue","Food + Entertainment.5":"cadetblue","Food + Entertainment.6":"cadetblue","Food + Entertainment.7":"cadetblue","Food + Entertainment.8":"cadetblue"},"iconColor":"black","spin":false,"squareMarker":false,"iconRotate":0,"font":"monospace","prefix":"ion"},null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Abbottsford Hall","Campus Town East","Campus Town West","M. Carpenter Tower Hall","Charles Cobeen Hall","Frenn Building","Gilman Building","Glenn Humphrey Hall","Mashuda Hall","Schroeder Hall","David A. Straz, Jr., Tower Hall","The Commons","707 Building","1700 Building","Alumni Memorial Union","Emory T. Clark Hall","Coughlin Hall","Cramer Hall","Cudahy Hall","School of Dentistry","Ray and Kay Eckstein Hall","Engineering Hall","Haggerty Museum of Art","Haggerty Hall","Olin Engineering Center","ROTC Gymnasium","Halfaer Building","Halfaer Tennis Stadium","Halfaer Theatre","Holthusen Hall (Varsity Theater)","Dr. E.J. O'Brien Jesuit Residence","St. Joan of Arc Chapel","Johnston Hall","Lalumiere Language Hall","Schroeder Complex","Sensenbrenner Hall","Facilities Service Building","Valley Fields","David A. Straz, Jr., Hall","Union Sports Annex","Weasler Auditorium","Wehr Life Sciences","Wehr Chemistry","Wehr Physics","Zilber Hall","Church of the Gesu","Athletic & Human \r\nPerformance Research Center","Al McGuire Center","Wells Street Structure","16th Street Structure","Eckstein Common","Memorial Library","Raynor Library","Academic Quad","Book Marq","Sendik's","Murphy's Pub","Caffrey's","Sobelman's (RIP)","7-ELEVEN","Broken Yolk","Jimmy John's","Real Chili","Qdoba"],null,null,null,["Residence Hall","University Apartment","University Apartment","Residence Hall","Residence Hall","University Apartment","University Apartment","Residence Hall","Residence Hall","Residence Hall","Residence Hall","Residence Hall","Administrative","Academic","Administrative","Academic","Academic","Academic","Academic","Academic","Academic","Academic","Recreation","Academic","Academic","Recreation","Recreation","Recreation","Recreation","Recreation","Residence Hall","Religious Institution","Academic","Academic","Academic","Administrative","Administrative","Recreation","Academic","Recreation","Recreation","Academic","Academic","Academic","Administrative","Religious Institution","Academic","Recreation","Parking","Parking","Recreation","Academic","Academic","Recreation","Academic","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment","Food + Entertainment"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[43.032091,43.04097],"lng":[-87.937448,-87.923646]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Marquette_Golden_Eagles_logo.svg" class="slide-logo r-stretch"><div class="footer footer-default">
 
 </div>
 </section>
@@ -659,7 +648,7 @@
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: false,
+        slideNumber: 'c/t',
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',
