@@ -36,58 +36,138 @@ if (any(installed_packages == FALSE)) {
 invisible(lapply(packages, library, character.only = TRUE))
 ```
 
-## First Slide
+## Leaflet Package 
+---
+title: "Untitled"
+format: 
+  revealjs:
+    smaller: true
+---
+
+- The leaflet package allows users to create interactive maps where you can custom icons, markers, layers, etc. To create a leaflet map all you need is the longitude and latitude of a location or locations. 
+
+. . .
+
+- Advantages of leaflet include its versatility, compatibility, flexibility, exceptional dynamic maps, aesthetic features, ability to create mobile maps while working with shiny() to post interactive maps to websites.
+
+. . . 
+
+- It is used by famous websites like the New York Times and Mapbox for interactive maps.
+
+## How/Why does this package help us do data science?
+- This package helps us do data science because it can be easily used to visualize spatial data with a wide range of features such as searching, zooming and switching between layers.
+
+## Usage: Initializing the Window
+
+initializing creates the window for other functions to add to  
+
+functions:  
+
+- leaflet() 
+
+. . . 
+
+- leafletOptions(): sets minZoom and maxZoom  
+
+. . . 
+
+- setView(): sets the center of the map view and the zoom level 
+
+. . .
+
+- fitBounds(): fits the view into the rectangle  
+
+. . .
+
+- clearBounds(): clears the bound, so that the view will be automatically determined by the range of latitude/longitude data in the map layers if provided 
+
+## Creating Maps
+creating the map requires “tiles” that tell Leaflet what type of map to output 
+
+functions: 
+
+- addTiles(): adding OpenStreetMap base map  
+
+. . .
+
+- addProviderTiles(): adding third-party provided base maps (via plugin) 
+
+. . .
+
+- addWMSTiles(): Web Map Services tiles (via the internet)
+
+## Adding Shapes 
+allows user to put in country, state, counties, etc. shapes in the map to connect to data  
+
+functions: 
+
+- addPolygons(): add map shapes (countries, states, counties, etc.) 
+
+. . .
+
+- addCircles(): given radius around a point  
+
+. . .
+
+- addRectangles(): 4 given points  
+
+## Reading Data form Excel
+- Once we create our data based on the longitude and latitude we can let R read the data. 
 ```{r}
+#| echo: fenced
 
 library(leaflet)
 
 xl_file <- readxl::read_excel("./data/MU Location Coordinates.xlsx")
 xl_file
 
-
 ```
 
-## Second Slide
+## Turning Data into Map
 ```{r}
+#| echo: fenced 
 
 m <- leaflet(data = xl_file) %>%
   addTiles() %>%
-  addMarkers(lat = ~Latitude , lng = ~Longitude , popup = ~Location, label = ~as.character(Type))
-
+  addMarkers(lat = ~Latitude , lng = ~Longitude , popup = ~as.character(Type), label = ~as.character(Type))
 m
+```
 
-getcolor <- function(xl_file){
+## Changing Color Based on Type 
+```{r}
+#| echo: fenced 
+df <- xl_file[1:64,]
+
+getColor <- function(xl_file){
   sapply(xl_file$Type, function(Type) {
     if(Type == "Residence Hall") {
-      "purple"
+      "red"
     }else if(Type == "University Apartment"){
-      "orange"
+      "darkred"
     }else if(Type == "Administrative") {
       "green"
     }else if(Type == "Academic") {
-      "blue"
+      "orange"
     }else if(Type == "Recreation") {
-      "red"
+      "darkgreen"
     }else if(Type == "Religious Institution"){
-      "yellow"
+      "blue"
     }else if(Type == "Parking") {
-      "black"
+      "purple"
     }else{
-      "white"
-    }
-  })
+      "cadetblue"
+    } })
 }
 
 icons <- awesomeIcons(
   icon = 'ios-close',
   iconColor = 'black',
   library = 'ion',
-  markerColor = getcolor(xl_file)
+  markerColor = getColor(df)
 )
 
 
-#leaflet(xl_file) |>
-#  addTiles() |>
-#  addAwesomeMarkers(~lng, ~lat, icon=icons, label=~as.character(Type))
-
+#leaflet(df) %>% addTiles() %>%
+#  addAwesomeMarkers(~lat, ~lng, icon=icons, label=~as.character(Type))
 ```
+
