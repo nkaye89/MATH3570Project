@@ -1,0 +1,4 @@
+- source: hw-03.qmd
+  quarto-pub:
+    - id: 3d74f33b-9655-43ac-bf15-163e2a76f64b
+      url: 'https://quartopub.com/sites/noahk89/web-mapping-with-leaflet'

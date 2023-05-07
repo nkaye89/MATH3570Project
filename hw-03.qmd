@@ -1,5 +1,5 @@
 ---
-title: "Introducing Leaflet"
+title: "Web Mapping With Leaflet"
 subtitle: "Team Analytics and Beyond"
 format: 
   revealjs:
@@ -7,7 +7,7 @@ format:
     logo: "https://upload.wikimedia.org/wikipedia/commons/e/e8/Marquette_Golden_Eagles_logo.svg"
 date: "`r Sys.Date()`"
 author: "**Andrew Hiller, Annie Gibbons, Caroline Kwak, Noah Kaye**"
-number-sections: true
+number-sections: false
 from: markdown+emoji
 editor: 
   source
@@ -37,22 +37,43 @@ invisible(lapply(packages, library, character.only = TRUE))
 ```
 
 ## First Slide
+Explain what leaflet is
+
+## Second Slide
+Side by side of leaflet map versus static map (picture of map?)
+Explain why leaflet is better and show some features
+
+## More about why it's better
+maybe some slides about situations in which leaflet is better than static map
+(using examples from the documentation site)
+
+## Show what we created
+end product of marquette map
+
+## Then some slides for the demo
+show how we created the map
+
+## Conclusion-ish slide
+revisit what was learned in the demo and how it can be useful
+
+## Our data
 ```{r}
+#|echo: false
 
 library(leaflet)
 
 xl_file <- readxl::read_excel("./data/MU Location Coordinates.xlsx")
 xl_file
 
-
 ```
 
-## Second Slide
+##
+
 ```{r}
 
 m <- leaflet(data = xl_file) %>%
   addTiles() %>%
-  addMarkers(lat = ~Latitude , lng = ~Longitude , popup = ~Location, label = ~as.character(Type))
+  addMarkers(lat = ~Latitude , lng = ~Longitude , popup = ~Type, label = ~Location)
 
 m
 
@@ -90,4 +111,12 @@ icons <- awesomeIcons(
 #  addTiles() |>
 #  addAwesomeMarkers(~lng, ~lat, icon=icons, label=~as.character(Type))
 
+```
+
+## slide with new icons
+```{r}
+leaflet(xl_file) |>
+  addTiles() |>
+  addAwesomeMarkers(lng = ~Longitude, lat = ~Latitude, popup = ~Location, icon=icons,
+                    label=~as.character(Type))
 ```
