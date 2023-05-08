@@ -45,8 +45,14 @@ invisible(lapply(packages, library, character.only = TRUE))
 
 - It is used by famous websites like the New York Times and Mapbox for interactive maps.
 
+![](https://posit.co/wp-content/uploads/2015/06/BLOG-leaflet-interactive-web-maps-with-r.jpg)
+
+
 ## How/Why does this package help us do data science?
 - This package helps us do data science because it can be easily used to visualize spatial data with a wide range of features such as searching, zooming and switching between layers.
+
+![](https://shiny.rstudio.com/gallery/images/thumbnails/superzip-example.png)
+
 
 ## Usage: Initializing the Window
 Initializing creates the window for other functions to add to  
