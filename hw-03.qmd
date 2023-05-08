@@ -77,8 +77,10 @@ functions:
 
 ```{r}
 #| echo: fenced
-leaflet() %>%
-  addTiles() %>%
+library(leaflet)
+
+leaflet() %>% 
+  addTiles() %>% 
   setView(lng = -3.7, lat = 40.4, zoom = 5)
 ```
 
@@ -125,8 +127,12 @@ functions:
 
 . . .
 
+::: {.panel-tabset} 
+
+### Map
 ```{r}
-#| echo: fenced
+#| echo: false
+
 circles <- data.frame(lng = c(-3.7, -3.72),
                       lat = c(40.4, 40.42))
 
@@ -137,6 +143,20 @@ leaflet() %>%
   addCircles(data = circles, radius = 2000)
 ```
 
+### Code
+```{r}
+#| echo: true
+#| eval: false
+circles <- data.frame(lng = c(-3.7, -3.72),
+                      lat = c(40.4, 40.42))
+
+leaflet() %>%
+  addTiles() %>%
+  setView(lng = -3.7, lat = 40.4, zoom = 13) %>%
+  addCircleMarkers(data = circles, color = "red") %>%
+  addCircles(data = circles, radius = 2000)
+```
+:::
 
 ## Adding Colors 
 Can help convey more information within the visual 
