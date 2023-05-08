@@ -228,13 +228,15 @@ m
 ```
 
 ## Changing Color Based on Type 
-
+Creating a function to pick a color based on type, we can then use awesomeIcons() to apply the color.
 ```{r}
-#| echo: fenced 
+#| echo: fenced
+
+data(xl_file)
 
 getColor <- function(xl_file){sapply(xl_file$Type, function(Type) {
     if(Type == "Residence Hall") {
-      "red"
+      "blue"
     }else if(Type == "University Apartment") {
       "gray"
     }else if(Type == "Administrative") {
@@ -259,11 +261,16 @@ icons <- awesomeIcons(
   markerColor = getColor(xl_file)
 )
 
+icons <- as.tibble(icons)
+
 ```
 
 ## slide with new icons
+Colors have been added!
 ```{r}
-leaflet(df.all) |>
+#|echo: fenced
+
+leaflet(xl_file) |>
   addTiles() |>
   addAwesomeMarkers(lng = ~Longitude, lat = ~Latitude, popup = ~Location, icon=icons, label= ~as.character(xl_file$Type))
 ```
