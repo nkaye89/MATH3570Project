@@ -190,6 +190,12 @@ functions:
 
 - colorFactor(): categorical input  
 
+<center>
+
+![](https://i.stack.imgur.com/XuXIF.jpg)
+
+<center> 
+
 ## Adding Markers 
 Markers are used to highlight points on the map to add more information to the display 
 
