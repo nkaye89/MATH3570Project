@@ -62,6 +62,7 @@ invisible(lapply(packages, library, character.only = TRUE))
 
 ## Usage: Initializing the Window
 Initializing creates the window for other functions to add to  
+
 . . .
 
 functions:  
@@ -85,6 +86,8 @@ functions:
 . . .
 
 - clearBounds(): clears the bound, so that the view will be automatically determined by the range of latitude/longitude data in the map layers if provided 
+
+## Initializing the Window Example 
 
 ```{r}
 #| echo: fenced
@@ -113,7 +116,10 @@ functions:
 
 - addWMSTiles(): Web Map Services tiles (via the internet)
 
+## Creating Maps Example 
+
 ```{r}
+#| echo: fenced
 leaflet() %>%
   addTiles()
 ```
@@ -128,16 +134,13 @@ functions:
 
 - addPolygons(): add map shapes (countries, states, counties, etc.) 
 
-. . .
-
 - addCircles(): given radius around a point  
-
-. . .
 
 - addRectangles(): 4 given points  
 
 . . .
 
+## Adding Shapes Example
 ::: {.panel-tabset} 
 
 ### Map
@@ -575,10 +578,12 @@ We can add a legend using the function addLegend()
 
 . . .
 
-- While leaflet is suited for visualizing spatial data, ggplot2 is better suited for non-spatial data and creating static visualization. 
+- While ggplot2 is suited for non-spatial data and creating static visualizations, leaflet is better suited for visualizing spatial data, creating interactive visualizations. 
 
-## Recap  
+## Recap 
+
 . . .
+
 We created a Marquette map that highlights the many different buildings on campus such as the academic, residential, recreational, religious and administrative buildings. By finding the longitude and latitude of each location on campus we created an Excel worksheet with the data that later helped in being able to create an accurate leaflet map. Based on the type we changed the color and added icons for the markers to easily distinguish what the building is.  
 
 ## Resources 
