@@ -419,11 +419,12 @@ New icons have been added!
 ```{r}
 #| echo: false
 
-  m %>% addAwesomeMarkers(lng = ~Longitude,
+  m <- m %>% addAwesomeMarkers(lng = ~Longitude,
                     lat = ~Latitude,
                     popup = ~Location,
                     icon=icons,
                     label= ~as.character(xl_file$Type))
+  m
 ```
 
 ### Code
@@ -432,14 +433,57 @@ New icons have been added!
 #| echo: true
 #| eval: false
 
-  m %>% addAwesomeMarkers(lng = ~Longitude,
+  m <- m %>% addAwesomeMarkers(lng = ~Longitude,
                     lat = ~Latitude,
                     popup = ~Location,
                     icon=icons,
                     label= ~as.character(xl_file$Type))
+  m
 ```
 
 :::
+
+## Adding a legend
+We can add a legend using the function addLegend()
+
+::: {.panel-tabset}
+
+### Map
+```{r}
+#| echo: false
+
+  # make a vector of the types of buildings
+  df_types <- xl_file %>% distinct(Type)
+  types <- c(df_types$Type)
+  
+  # make a vector of the colors
+  df_colors <- icons %>% distinct(markerColor)
+  colors <- c(df_colors$markerColor)
+
+  m <- m %>% addLegend(position = 'bottomright', colors = colors, labels = types)
+  m
+
+```
+### Code
+```{r}
+#| echo: true
+#| eval: false
+
+  # make a vector of the types of buildings
+  df_types <- xl_file %>% distinct(Type)
+  types <- c(df_types$Type)
+  
+  # make a vector of the colors
+  df_colors <- icons %>% distinct(markerColor)
+  colors <- c(df_colors$markerColor)
+
+  m <- m %>% addLegend(position = 'bottomright', colors = colors, labels = types)
+  m
+
+```
+:::
+
+
 
 ## Advantages
 
