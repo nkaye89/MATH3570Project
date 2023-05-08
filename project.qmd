@@ -1,0 +1,607 @@
+---
+title: "Web Mapping With Leaflet"
+subtitle: "Team Analytics and Beyond"
+format: 
+  revealjs:
+    smaller: true
+    slide-number: c/t   
+    logo: "https://upload.wikimedia.org/wikipedia/commons/e/e8/Marquette_Golden_Eagles_logo.svg"
+date: "`r Sys.Date()`"
+author: "**Andrew Hiller, Annie Gibbons, Caroline Kwak, Noah Kaye**"
+number-sections: false
+from: markdown+emoji
+editor: 
+  source
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+####################################################
+## !!!DO NOT MAKE ANY CHANGE OF THIS CODE CHUNK!!!##
+####################################################
+
+# Package names
+packages <- c("knitr", "ggplot2", "ggrepel", 
+              "tidyverse", "formatR", "dslabs", "janitor", 
+              "ggthemes", "plotly", "tidymodels", "kknn")
+
+# Install packages not yet installed
+installed_packages <- packages %in% rownames(installed.packages())
+if (any(installed_packages == FALSE)) {
+    install.packages(packages[!installed_packages])
+}
+
+# Packages loading
+invisible(lapply(packages, library, character.only = TRUE))
+```
+
+## Leaflet Package 
+
+- The leaflet package allows users to create interactive maps where you can custom icons, markers, layers, etc. To create a leaflet map all you need is the longitude and latitude of a location or locations. 
+
+. . .
+
+- It is used by famous websites like the New York Times and Mapbox for interactive maps.
+
+<center>
+
+![](https://posit.co/wp-content/uploads/2015/06/BLOG-leaflet-interactive-web-maps-with-r.jpg)
+
+<center>
+
+## How/Why does this package help us do data science?
+- This package helps us do data science because it can be easily used to visualize spatial data with a wide range of features such as searching, zooming and switching between layers.
+
+<center>
+
+![](https://shiny.rstudio.com/gallery/images/thumbnails/superzip-example.png)
+
+<center>
+
+## Usage: Initializing the Window
+Initializing creates the window for other functions to add to  
+
+. . .
+
+functions:  
+
+. . .
+
+- leaflet() 
+
+. . . 
+
+- leafletOptions(): sets minZoom and maxZoom  
+
+. . . 
+
+- setView(): sets the center of the map view and the zoom level 
+
+. . .
+
+- fitBounds(): fits the view into the rectangle  
+
+. . .
+
+- clearBounds(): clears the bound, so that the view will be automatically determined by the range of latitude/longitude data in the map layers if provided 
+
+## Initializing the Window Example 
+
+```{r}
+#| echo: fenced
+library(leaflet)
+
+leaflet() %>% 
+  addTiles() %>% 
+  setView(lng = -3.7, lat = 40.4, zoom = 5)
+```
+
+
+## Creating Maps
+Creating the map requires “tiles” that tell Leaflet what type of map to output 
+
+. . .
+
+functions: 
+
+- addTiles(): adding OpenStreetMap base map  
+
+. . .
+
+- addProviderTiles(): adding third-party provided base maps (via plugin) 
+
+. . .
+
+- addWMSTiles(): Web Map Services tiles (via the internet)
+
+## Creating Maps Example 
+
+```{r}
+#| echo: fenced
+leaflet() %>%
+  addTiles()
+```
+
+
+## Adding Shapes 
+Allows user to put in country, state, counties, etc. shapes in the map to connect to data  
+
+. . .
+
+functions: 
+
+- addPolygons(): add map shapes (countries, states, counties, etc.) 
+
+- addCircles(): given radius around a point  
+
+- addRectangles(): 4 given points  
+
+. . .
+
+## Adding Shapes Example
+::: {.panel-tabset} 
+
+### Map
+```{r}
+#| echo: false
+
+circles <- data.frame(lng = c(-3.7, -3.72),
+                      lat = c(40.4, 40.42))
+
+leaflet() %>%
+  addTiles() %>%
+  setView(lng = -3.7, lat = 40.4, zoom = 13) %>%
+  addCircleMarkers(data = circles, color = "red") %>%
+  addCircles(data = circles, radius = 2000)
+```
+
+### Code
+```{r}
+#| echo: true
+#| eval: false
+circles <- data.frame(lng = c(-3.7, -3.72),
+                      lat = c(40.4, 40.42))
+
+leaflet() %>%
+  addTiles() %>%
+  setView(lng = -3.7, lat = 40.4, zoom = 13) %>%
+  addCircleMarkers(data = circles, color = "red") %>%
+  addCircles(data = circles, radius = 2000)
+```
+:::
+
+## Adding Colors 
+Can help convey more information within the visual 
+
+. . .
+
+
+functions:  
+
+- colorNumeric(): continuous input, continuous colors 
+
+. . .
+
+- colorBin(), colorQuanitile(): continuous input, discrete colors 
+
+. . .
+
+- colorFactor(): categorical input  
+
+<center>
+
+![](https://i.stack.imgur.com/XuXIF.jpg)
+
+<center> 
+
+## Adding Markers 
+Markers are used to highlight points on the map to add more information to the display 
+
+. . .
+
+functions:  
+
+- addMarker(), addAwesomeMarker(): adding icon marker (default is dropped pin)  
+
+. . .
+
+- makeIcon(), makeAwesomeIcon(): customizing icon markers 
+
+. . .
+
+- iconList(), awesomeIconList(): set of icons with varying parameters 
+
+. . .
+
+- clusterMarkers(), clusterMarkerOptions(): clustering large quantities of markers (when you zoom out they combine into one icon)  
+
+. . .
+
+- addCircleMarkers(): adds circle markers with constant radius 
+
+## Popups and Labels 
+Good ways to explain what a marker is or represents, without overcrowding the visual 
+
+. . .
+
+Labels appear when a marker is moused over
+
+. . .
+
+Popups appear when a marker is clicked on  
+
+. . .
+
+functions 
+
+- addPopups(): add popups to map  
+
+. . .
+
+- labelOptions() 
+
+. . .
+
+- addLabelOnlyMarkers(): labels without markers 
+
+## Legend 
+
+Legends explain what some of the markers or colors represent on the map enabling more information to be on visual without overcrowding the page  
+
+. . .
+
+functions 
+
+- addLegend() 
+
+<center>
+![](https://i.stack.imgur.com/LjU6B.png)
+<center>
+
+## Layers 
+A way to fit more information onto the map without overcrowding 
+
+. . .
+
+functions 
+
+- addLayersControl(): adds box that allows you to control which layers you see 
+
+```{r}
+leaflet() %>%
+  addTiles(group = "StreetMap") %>%
+  addProviderTiles(providers$Stamen.Watercolor, group = "Stamen") %>%
+  addMarkers(lng = c(-102.8, -101.1), lat = c(38.7, 39.4), group = "Markers") %>%
+  addLayersControl(baseGroups = c("StreetMap", "Stamen"), overlayGroups = c("Markers"),
+                   position = "topright")
+```
+
+
+## Reading Data from Excel
+Once we create our data based on the longitude and latitude we can let R read the data. 
+
+. . .
+
+```{r}
+#| echo: fenced
+
+library(leaflet)
+
+xl_file <- readxl::read_excel("./data/MU Location Coordinates.xlsx")
+xl_file
+
+```
+
+## Turning Data into Map
+With the data from excel we use leaflet(), addTiles(), and addMarkers() to make the inital map.
+
+::: {.panel-tabset}
+### Map
+```{r}
+#| echo: false
+
+m <- leaflet(data = xl_file) %>%
+  addTiles()
+
+  m %>% addMarkers(lat = ~Latitude , lng = ~Longitude , popup = ~as.character(Type), label = ~as.character(Location))
+```
+
+### Code
+```{r}
+#| echo: true
+#| eval: false
+
+m <- leaflet(data = xl_file) %>%
+  addTiles()
+
+  m %>% addMarkers(lat = ~Latitude , lng = ~Longitude , popup = ~as.character(Type), label = ~as.character(Location))
+```
+:::
+
+## Setting a min and max zoom
+We can set a minimum and maximum zoom 
+
+::: {.panel-tabset}
+
+### Map
+```{r}
+#| echo: false
+
+m <- leaflet(options = leafletOptions(minZoom = 15, maxZoom = 18), data = xl_file) %>% addTiles()
+
+  m %>% addMarkers(lat = ~Latitude , lng = ~Longitude , popup = ~as.character(Type), label = ~as.character(Location))
+```
+### Code
+```{r}
+#| echo: true
+#| eval: false
+
+m <- leaflet(options = leafletOptions(minZoom = 15, maxZoom = 18), data = xl_file) %>% addTiles()
+
+  m %>% addMarkers(lat = ~Latitude , lng = ~Longitude , popup = ~as.character(Type), label = ~as.character(Location))
+```
+
+:::
+
+## Changing Color Based on Type 
+Creating a function to pick a color based on type, we can then use awesomeIcons() to apply the color.
+```{r}
+#| echo: fenced
+#| code-line-numbers: "|4|5-9|24-29|31|"
+
+getColor <- function(xl_file){sapply(xl_file$Type, function(Type) {
+    if(Type == "Residence Hall") {
+      "red"
+    }else if(Type == "University Apartment") {
+      "lightgray"
+    }else if(Type == "Administrative") {
+      "green"
+    }else if(Type == "Academic") {
+      "orange"
+    }else if(Type == "Recreation") {
+      "white"
+    }else if(Type == "Religious Institution") {
+      "blue"
+    }else if(Type == "Parking") {
+      "purple"
+    }else{
+      "cadetblue"
+    } })
+}
+
+icons <- awesomeIcons(
+  icon = 'ios-close',
+  iconColor = 'black',
+  library = "ion",
+  markerColor = getColor(xl_file)
+)
+
+icons <- as_tibble(icons)
+
+```
+
+
+## Display with colored icons
+Colors have been added!
+
+::: {.panel-tabset}
+
+### Map
+
+```{r}
+#| echo: false
+
+  m %>% addAwesomeMarkers(lng = ~Longitude,
+                    lat = ~Latitude,
+                    popup = ~Location,
+                    icon=icons,
+                    label= ~as.character(xl_file$Type))
+```
+
+### Code
+
+```{r}
+#| echo: true
+#| eval: false
+
+  m %>% addAwesomeMarkers(lng = ~Longitude,
+                    lat = ~Latitude,
+                    popup = ~Location,
+                    icon=icons,
+                    label= ~as.character(xl_file$Type))
+```
+
+:::
+
+
+## Changing icon based on type
+We can use the same method to change icons
+```{r}
+#| echo: fenced
+#| code-line-numbers: "|4|5-9|24-29|31|"
+
+getIcon <- function(xl_file){sapply(xl_file$Type, function(Type) {
+    if(Type == "Residence Hall") {
+      "home"
+    }else if(Type == "University Apartment") {
+      "home"
+    }else if(Type == "Administrative") {
+      "arrow-graph-up-right"
+    }else if(Type == "Academic") {
+      "android-create"
+    }else if(Type == "Recreation") {
+      "leaf"
+    }else if(Type == "Religious Institution") {
+      "ios-plus-empty"
+    }else if(Type == "Parking") {
+      "android-car"
+    }else{
+      "android-restaurant"
+    } })
+}
+
+icons <- awesomeIcons(
+  iconColor = 'black',
+  library = "ion",
+  markerColor = getColor(xl_file),
+  icon = getIcon(xl_file),
+)
+
+icons <- as.tibble(icons)
+
+```
+
+## Display with new icons
+New icons have been added!
+
+::: {.panel-tabset}
+
+### Map
+
+```{r}
+#| echo: false
+
+  m <- m %>% addAwesomeMarkers(lng = ~Longitude,
+                    lat = ~Latitude,
+                    popup = ~Location,
+                    icon=icons,
+                    label= ~as.character(xl_file$Type))
+  m
+```
+
+### Code
+
+```{r}
+#| echo: true
+#| eval: false
+
+  m <- m %>% addAwesomeMarkers(lng = ~Longitude,
+                    lat = ~Latitude,
+                    popup = ~Location,
+                    icon=icons,
+                    label= ~as.character(xl_file$Type))
+  m
+```
+
+:::
+
+## Adding a legend
+We can add a legend using the function addLegend()
+
+::: {.panel-tabset}
+
+### Map
+```{r}
+#| echo: false
+
+  # make a vector of the types of buildings
+  df_types <- xl_file %>% distinct(Type)
+  types <- c(df_types$Type)
+  
+  # make a vector of the colors
+  df_colors <- icons %>% distinct(markerColor)
+  colors <- c(df_colors$markerColor)
+
+  m <- m %>% addLegend(position = 'bottomright', colors = colors, labels = types)
+  m
+
+```
+### Code
+```{r}
+#| echo: true
+#| eval: false
+
+  # make a vector of the types of buildings
+  df_types <- xl_file %>% distinct(Type)
+  types <- c(df_types$Type)
+  
+  # make a vector of the colors
+  df_colors <- icons %>% distinct(markerColor)
+  colors <- c(df_colors$markerColor)
+
+  m <- m %>% addLegend(position = 'bottomright', colors = colors, labels = types)
+  m
+
+```
+:::
+
+
+
+## Advantages
+
+- Creates dynamic maps
+
+. . .
+
+- Has many aesthetics features that make maps popular in R community 
+
+. . .
+
+- Works with shiny() to post interactive maps to websites
+
+. . .
+
+- Acepts many types of map objects
+
+. . .
+
+- Can create mobile maps
+
+. . .
+
+- Highly flexible
+
+![](https://leafletjs.com/examples/mobile/thumbnail.png){width=50% height=50%}
+
+
+## Pros
+
+- Used by professionals; it is scalable and reliable
+
+. . .
+
+- Can use a multitude of map files
+
+. . .
+
+- Many customizable features
+
+![](https://cdn.freebiesupply.com/logos/thumbs/2x/leaflet-logo.png)
+
+## Why Leaflet instead of ggplot2?
+
+-	Leaflet is used for creating interactive maps. 
+
+. . . 
+
+- It allows you to create maps that include zooming, panning, and adding markers and popups. 
+
+. . .
+
+- Ggplot2 is a data visualization package in R that is primarily used for creating static graphics. 
+
+. . . 
+
+- It can be used to create scatterplots, bar charts, and histograms. 
+
+. . .
+
+- While ggplot2 is suited for non-spatial data and creating static visualizations, leaflet is better suited for visualizing spatial data, creating interactive visualizations. 
+
+## Recap 
+
+. . .
+
+We created a Marquette map that highlights the many different buildings on campus such as the academic, residential, recreational, religious and administrative buildings. By finding the longitude and latitude of each location on campus we created an Excel worksheet with the data that later helped in being able to create an accurate leaflet map. Based on the type we changed the color and added icons for the markers to easily distinguish what the building is.  
+
+## Resources 
+
+- [Interactive maps with leaflet in R](https://r-charts.com/spatial/interactive-maps-leaflet/#features)
+- [Leaflet for R](http://rstudio.github.io/leaflet/)
+
+## Questions 
+
+
+
