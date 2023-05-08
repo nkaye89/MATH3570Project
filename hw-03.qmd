@@ -75,6 +75,14 @@ functions:
 
 - clearBounds(): clears the bound, so that the view will be automatically determined by the range of latitude/longitude data in the map layers if provided 
 
+```{r}
+#| echo: fenced
+leaflet() %>%
+  addTiles() %>%
+  setView(lng = -3.7, lat = 40.4, zoom = 5)
+```
+
+
 ## Creating Maps
 Creating the map requires “tiles” that tell Leaflet what type of map to output 
 
@@ -92,6 +100,12 @@ functions:
 
 - addWMSTiles(): Web Map Services tiles (via the internet)
 
+```{r}
+leaflet() %>%
+  addTiles()
+```
+
+
 ## Adding Shapes 
 Allows user to put in country, state, counties, etc. shapes in the map to connect to data  
 
@@ -108,6 +122,21 @@ functions:
 . . .
 
 - addRectangles(): 4 given points  
+
+. . .
+
+```{r}
+#| echo: fenced
+circles <- data.frame(lng = c(-3.7, -3.72),
+                      lat = c(40.4, 40.42))
+
+leaflet() %>%
+  addTiles() %>%
+  setView(lng = -3.7, lat = 40.4, zoom = 13) %>%
+  addCircleMarkers(data = circles, color = "red") %>%
+  addCircles(data = circles, radius = 2000)
+```
+
 
 ## Adding Colors 
 Can help convey more information within the visual 
@@ -195,6 +224,16 @@ A way to fit more information onto the map without overcrowding
 functions 
 
 - addLayersControl(): adds box that allows you to control which layers you see 
+
+```{r}
+leaflet() %>%
+  addTiles(group = "StreetMap") %>%
+  addProviderTiles(providers$Stamen.Watercolor, group = "Stamen") %>%
+  addMarkers(lng = c(-102.8, -101.1), lat = c(38.7, 39.4), group = "Markers") %>%
+  addLayersControl(baseGroups = c("StreetMap", "Stamen"), overlayGroups = c("Markers"),
+                   position = "topright")
+```
+
 
 ## Reading Data form Excel
 Once we create our data based on the longitude and latitude we can let R read the data. 
@@ -465,9 +504,12 @@ New icons have been added!
 
 ## Recap  
 . . .
+We created a Marquette map that highlights the many different buildings on campus such as the academic, residential, recreational, religious and administrative buildings. By finding the longitude and latitude of each location on campus we created an Excel worksheet with the data that later helped in being able to create an accurate leaflet map. Based on the type we changed the color and added icons for the markers to easily distinguish what the building is.  
 
+## Resources 
 
-
+- [Interactive maps with leaflet in R](https://r-charts.com/spatial/interactive-maps-leaflet/#features)
+- [Leaflet for R](http://rstudio.github.io/leaflet/)
 
 ## Questions 
 
