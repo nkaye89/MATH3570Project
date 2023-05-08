@@ -572,7 +572,7 @@ We can add a legend using the function addLegend()
 
 . . .
 
-- While leaflet is suited for visualizing spatial data, ggplot2 is better suited for non-spatial data and creating static visualization. 
+- While ggplot2 is suited for non-spatial data and creating static visualizations, leaflet is better suited for visualizing spatial data, creating interactive visualizations. 
 
 ## Recap  
 . . .
