@@ -56,7 +56,6 @@ invisible(lapply(packages, library, character.only = TRUE))
 
 ## Usage: Initializing the Window
 Initializing creates the window for other functions to add to  
-
 . . .
 
 functions:  
@@ -241,7 +240,7 @@ leaflet() %>%
 ```
 
 
-## Reading Data form Excel
+## Reading Data from Excel
 Once we create our data based on the longitude and latitude we can let R read the data. 
 
 . . .
