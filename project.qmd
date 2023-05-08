@@ -190,6 +190,12 @@ functions:
 
 - colorFactor(): categorical input  
 
+<center>
+
+![](https://i.stack.imgur.com/XuXIF.jpg)
+
+<center> 
+
 ## Adding Markers 
 Markers are used to highlight points on the map to add more information to the display 
 
@@ -249,6 +255,10 @@ Legends explain what some of the markers or colors represent on the map enabling
 functions 
 
 - addLegend() 
+
+<center>
+![](https://i.stack.imgur.com/LjU6B.png)
+<center>
 
 ## Layers 
 A way to fit more information onto the map without overcrowding 
