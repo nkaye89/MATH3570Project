@@ -56,6 +56,7 @@ invisible(lapply(packages, library, character.only = TRUE))
 
 ## Usage: Initializing the Window
 Initializing creates the window for other functions to add to  
+
 . . .
 
 functions:  
@@ -79,6 +80,8 @@ functions:
 . . .
 
 - clearBounds(): clears the bound, so that the view will be automatically determined by the range of latitude/longitude data in the map layers if provided 
+
+## Initializing the Window Example 
 
 ```{r}
 #| echo: fenced
@@ -107,7 +110,10 @@ functions:
 
 - addWMSTiles(): Web Map Services tiles (via the internet)
 
+## Creating Maps Example 
+
 ```{r}
+#| echo: fenced
 leaflet() %>%
   addTiles()
 ```
@@ -122,16 +128,13 @@ functions:
 
 - addPolygons(): add map shapes (countries, states, counties, etc.) 
 
-. . .
-
 - addCircles(): given radius around a point  
-
-. . .
 
 - addRectangles(): 4 given points  
 
 . . .
 
+## Adding Shapes Example
 ::: {.panel-tabset} 
 
 ### Map
