@@ -43,10 +43,6 @@ invisible(lapply(packages, library, character.only = TRUE))
 
 . . .
 
-- Advantages of leaflet include its versatility, compatibility, flexibility, exceptional dynamic maps, aesthetic features, ability to create mobile maps while working with shiny() to post interactive maps to websites.
-
-. . . 
-
 - It is used by famous websites like the New York Times and Mapbox for interactive maps.
 
 ## How/Why does this package help us do data science?
@@ -299,7 +295,7 @@ icons <- awesomeIcons(
   markerColor = getColor(xl_file)
 )
 
-icons <- as.tibble(icons)
+icons <- as_tibble(icons)
 
 ```
 
@@ -405,3 +401,75 @@ New icons have been added!
 ```
 
 :::
+
+## Advantages
+
+- Creates dynamic maps
+
+. . .
+
+- Has many aesthetics features that make maps popular in R community 
+
+. . .
+
+- Works with shiny() to post interactive maps to websites
+
+. . .
+
+- Aceepts manny types of map objects
+
+. . .
+
+- Can create mobile maps
+
+. . .
+
+- Highly flexible
+
+![](https://leafletjs.com/examples/mobile/thumbnail.png){width=50% height=50%}
+
+
+## Pros
+
+- Used by professionals; it is scalable and reliable
+
+. . .
+
+- Can use a multitude of map files
+
+. . .
+
+- Many customizable features
+
+![](https://cdn.freebiesupply.com/logos/thumbs/2x/leaflet-logo.png)
+
+## Why Leaflet instead of ggplot2?
+
+-	Leaflet is used for creating interactive maps. 
+
+. . . 
+
+- It allows you to create maps that include zooming, panning, and adding markers and popups. 
+
+. . .
+
+- Ggplot2 is a data visualization package in R that is primarily used for creating static graphics. 
+
+. . . 
+
+- It can be used to create scatterplots, bar charts, and histograms. 
+
+. . .
+
+- While leaflet is suited for visualizing spatial data, ggplot2 is better suited for non-spatial data and creating static visualization. 
+
+## Recap  
+. . .
+
+
+
+
+## Questions 
+
+
+
