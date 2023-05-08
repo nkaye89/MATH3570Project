@@ -217,28 +217,43 @@ xl_file
 
 ## Turning Data into Map
 With the data from excel we use leaflet(), addTiles(), and addMarkers() to make the inital map.
+
+::: {.panel-tabset}
+### Map
 ```{r}
-#| echo: fenced 
+#| echo: false
 
 m <- leaflet(data = xl_file) %>%
-  addTiles() %>%
-  addMarkers(lat = ~Latitude , lng = ~Longitude , popup = ~as.character(Type), label = ~as.character(Location))
+  addTiles()
 
-m
+  m %>% addMarkers(lat = ~Latitude , lng = ~Longitude , popup = ~as.character(Type), label = ~as.character(Location))
 ```
+
+### Code
+```{r, fig.show = 'hide'}
+#| echo: true
+#| eval: false
+
+m <- leaflet(data = xl_file) %>%
+  addTiles()
+
+  m %>% addMarkers(lat = ~Latitude , lng = ~Longitude , popup = ~as.character(Type), label = ~as.character(Location))
+```
+
+:::
+
 
 ## Changing Color Based on Type 
 Creating a function to pick a color based on type, we can then use awesomeIcons() to apply the color.
 ```{r}
 #| echo: fenced
-
-data(xl_file)
+#| code-line-numbers: "|4|5-9|24-29|31|"
 
 getColor <- function(xl_file){sapply(xl_file$Type, function(Type) {
     if(Type == "Residence Hall") {
-      "blue"
+      "red"
     }else if(Type == "University Apartment") {
-      "gray"
+      "lightgray"
     }else if(Type == "Administrative") {
       "green"
     }else if(Type == "Academic") {
@@ -265,13 +280,105 @@ icons <- as.tibble(icons)
 
 ```
 
-## slide with new icons
-Colors have been added!
-```{r}
-#|echo: fenced
 
-leaflet(xl_file) |>
-  addTiles() |>
-  addAwesomeMarkers(lng = ~Longitude, lat = ~Latitude, popup = ~Location, icon=icons, label= ~as.character(xl_file$Type))
+## Display with colored icons
+Colors have been added!
+
+::: {.panel-tabset}
+
+### Map
+
+```{r}
+#| echo: false
+
+  m %>% addAwesomeMarkers(lng = ~Longitude,
+                    lat = ~Latitude,
+                    popup = ~Location,
+                    icon=icons,
+                    label= ~as.character(xl_file$Type))
 ```
 
+### Code
+
+```{r}
+#| echo: true
+#| eval: false
+
+  m %>% addAwesomeMarkers(lng = ~Longitude,
+                    lat = ~Latitude,
+                    popup = ~Location,
+                    icon=icons,
+                    label= ~as.character(xl_file$Type))
+```
+
+:::
+
+
+## Changing icon based on type
+We can use the same method to change icons
+```{r}
+#| echo: fenced
+#| code-line-numbers: "|4|5-9|24-29|31|"
+
+getIcon <- function(xl_file){sapply(xl_file$Type, function(Type) {
+    if(Type == "Residence Hall") {
+      "home"
+    }else if(Type == "University Apartment") {
+      "home"
+    }else if(Type == "Administrative") {
+      "arrow-graph-up-right"
+    }else if(Type == "Academic") {
+      "android-create"
+    }else if(Type == "Recreation") {
+      "leaf"
+    }else if(Type == "Religious Institution") {
+      "ios-plus-empty"
+    }else if(Type == "Parking") {
+      "android-car"
+    }else{
+      "android-restaurant"
+    } })
+}
+
+icons <- awesomeIcons(
+  iconColor = 'black',
+  library = "ion",
+  markerColor = getColor(xl_file),
+  icon = getIcon(xl_file),
+)
+
+icons <- as.tibble(icons)
+
+```
+
+## Display with new icons
+New icons have been added!
+
+::: {.panel-tabset}
+
+### Map
+
+```{r}
+#| echo: false
+
+  m %>% addAwesomeMarkers(lng = ~Longitude,
+                    lat = ~Latitude,
+                    popup = ~Location,
+                    icon=icons,
+                    label= ~as.character(xl_file$Type))
+```
+
+### Code
+
+```{r}
+#| echo: true
+#| eval: false
+
+  m %>% addAwesomeMarkers(lng = ~Longitude,
+                    lat = ~Latitude,
+                    popup = ~Location,
+                    icon=icons,
+                    label= ~as.character(xl_file$Type))
+```
+
+:::
