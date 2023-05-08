@@ -574,8 +574,10 @@ We can add a legend using the function addLegend()
 
 - While ggplot2 is suited for non-spatial data and creating static visualizations, leaflet is better suited for visualizing spatial data, creating interactive visualizations. 
 
-## Recap  
+## Recap 
+
 . . .
+
 We created a Marquette map that highlights the many different buildings on campus such as the academic, residential, recreational, religious and administrative buildings. By finding the longitude and latitude of each location on campus we created an Excel worksheet with the data that later helped in being able to create an accurate leaflet map. Based on the type we changed the color and added icons for the markers to easily distinguish what the building is.  
 
 ## Resources 
