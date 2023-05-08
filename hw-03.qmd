@@ -230,7 +230,7 @@ m <- leaflet(data = xl_file) %>%
 ```
 
 ### Code
-```{r, fig.show = 'hide'}
+```{r}
 #| echo: true
 #| eval: false
 
@@ -239,9 +239,32 @@ m <- leaflet(data = xl_file) %>%
 
   m %>% addMarkers(lat = ~Latitude , lng = ~Longitude , popup = ~as.character(Type), label = ~as.character(Location))
 ```
-
 :::
 
+## Setting a min and max zoom
+We can set a minimum and maximum zoom 
+
+::: {.panel-tabset}
+
+### Map
+```{r}
+#| echo: false
+
+m <- leaflet(options = leafletOptions(minZoom = 15, maxZoom = 18), data = xl_file) %>% addTiles()
+
+  m %>% addMarkers(lat = ~Latitude , lng = ~Longitude , popup = ~as.character(Type), label = ~as.character(Location))
+```
+### Code
+```{r}
+#| echo: true
+#| eval: false
+
+m <- leaflet(options = leafletOptions(minZoom = 15, maxZoom = 18), data = xl_file) %>% addTiles()
+
+  m %>% addMarkers(lat = ~Latitude , lng = ~Longitude , popup = ~as.character(Type), label = ~as.character(Location))
+```
+
+:::
 
 ## Changing Color Based on Type 
 Creating a function to pick a color based on type, we can then use awesomeIcons() to apply the color.
